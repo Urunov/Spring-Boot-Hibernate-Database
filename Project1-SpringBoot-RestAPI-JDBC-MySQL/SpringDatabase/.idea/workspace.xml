@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c49684c3-7a92-4f43-b7d1-27f132ceb237" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1Yxe5gDC74puTeSlrMdZ4IEu877" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
+  </component>
+  <component name="RunManager">
+    <configuration name="DatabaseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Spring-Boot-Projects" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="spring.database.DatabaseApplication" />
+      <option name="DEBUG_MODE" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SQLPlugin.ProjectConfiguration">
+    <queries />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c49684c3-7a92-4f43-b7d1-27f132ceb237" name="Default Changelist" comment="" />
+      <created>1583888490960</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583888490960</updated>
+      <workItem from="1583888496560" duration="90000" />
+      <workItem from="1583888823840" duration="6301000" />
+      <workItem from="1583895544170" duration="7576000" />
+      <workItem from="1583911224226" duration="143000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/SpringBootReference/todo-springboot-mysql-hibernate-rest" />
+    </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="361" y="71" key="#Inspections" timestamp="1583907093730">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="71" key="#Inspections/0.0.1536.824/-397.-1440.3440.1400@0.0.1536.824" timestamp="1583907093730" />
+    <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583904936742">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-397.-1440.3440.1400@0.0.1536.824" timestamp="1583904936742" />
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1583905997139">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-397.-1440.3440.1400@0.0.1536.824" timestamp="1583905997139" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1583905988991">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/-397.-1440.3440.1400@0.0.1536.824" timestamp="1583905988991" />
+    <state width="1493" height="65" key="GridCell.Tab.0.bottom" timestamp="1583895488279">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="65" key="GridCell.Tab.0.bottom/0.0.1536.824/-397.-1440.3440.1400@0.0.1536.824" timestamp="1583895488279" />
+    <state width="1493" height="65" key="GridCell.Tab.0.center" timestamp="1583895488279">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="65" key="GridCell.Tab.0.center/0.0.1536.824/-397.-1440.3440.1400@0.0.1536.824" timestamp="1583895488279" />
+    <state width="1493" height="65" key="GridCell.Tab.0.left" timestamp="1583895488279">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="65" key="GridCell.Tab.0.left/0.0.1536.824/-397.-1440.3440.1400@0.0.1536.824" timestamp="1583895488279" />
+    <state width="1493" height="65" key="GridCell.Tab.0.right" timestamp="1583895488279">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="65" key="GridCell.Tab.0.right/0.0.1536.824/-397.-1440.3440.1400@0.0.1536.824" timestamp="1583895488279" />
+    <state x="164" y="82" key="SettingsEditor" timestamp="1583906849536">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="164" y="82" key="SettingsEditor/0.0.1536.824/-397.-1440.3440.1400@0.0.1536.824" timestamp="1583906849536" />
+    <state x="574" y="51" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1583909218909">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="51" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824/-397.-1440.3440.1400@0.0.1536.824" timestamp="1583909218909" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1583911358251">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/-397.-1440.3440.1400@0.0.1536.824" timestamp="1583911358251" />
+  </component>
+</project>
