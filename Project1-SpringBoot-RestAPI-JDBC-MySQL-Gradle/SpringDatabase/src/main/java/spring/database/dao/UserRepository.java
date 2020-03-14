@@ -24,13 +24,16 @@ import java.util.List;
 public class UserRepository {
 
     @Autowired
-    JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
-    public List<User> getUser(){
-        return  jdbcTemplate.query("select id,firstname,lastname,city , country , phoneno,emailid from user", new UserRowMapper());
+    public List<User> getUsers() {
+        String sql = "SELECT * FROM user";
+
+        return jdbcTemplate.query(sql, new UserRowMapper());
+        //return  jdbcTemplate.query("select id, firstname, lastname, city, country, phoneno, emailid from user",  new UserRowMapper());
     }
 
-    public User findById(Integer id){
+    public User findById(Integer id) {
 
         String sql = "SELECT * FROM user WHERE ID = ?";
         try{
