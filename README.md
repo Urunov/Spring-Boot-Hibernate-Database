@@ -9,8 +9,7 @@ Spring Boot
 * Most Spring Boot applications need minimal Spring configuration. Features. Create stand-alone Spring applications
 
 JPA
-* JPA (The Java Presistence API) = This module deals with enhanced support for JPA based data access layers.
-Simply explain JPA is rule of the interface. 
+* JPA (The Java Presistence API) = This module deals with enhanced support for JPA based data access layers.Indeed, the JPA is rule of  interface. 
 
- Ex: 
-   Class A, B .... Implmenet 
+    Ex: 
+     Class A, B .... Implemenet Interface
