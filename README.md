@@ -23,6 +23,9 @@ JPA is an open-source API. There is various enterprises vendor such as Eclipse, 
 JDBC
 * Java Database Connectivity (JDBC) is an application programming interface (API) for the programming language Java, which defines how a client may access a database.
 
+Architecute of the Project Implementation
+![JDBC JPA](https://user-images.githubusercontent.com/11626327/76680830-9b1bae00-662f-11ea-84e8-941623ed7283.JPG)
+
 
 H2
 * H2 is a relational database management system written in Java. It can be embedded in Java applications or run in client-server mode.
