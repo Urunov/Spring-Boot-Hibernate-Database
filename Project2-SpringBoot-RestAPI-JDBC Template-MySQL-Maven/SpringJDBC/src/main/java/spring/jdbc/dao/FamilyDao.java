@@ -18,7 +18,7 @@ public interface FamilyDao {
 
     boolean saveMember(FamilyMember member);
 
-    void updateMember(FamilyMember member);
+    int updateMember(FamilyMember member);
 
     List<FamilyMember> findAll();
 

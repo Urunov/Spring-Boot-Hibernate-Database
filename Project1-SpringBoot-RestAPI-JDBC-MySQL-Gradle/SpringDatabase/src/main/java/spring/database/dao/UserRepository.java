@@ -24,25 +24,17 @@ public class UserRepository {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
-<<<<<<< HEAD
+
 
     public UserRepository(JdbcTemplate jdbcTemplate) {
+
         this.jdbcTemplate = jdbcTemplate;
     }
 
     public List<User> getUsers() {
-       // return jdbcTemplate.query(sql, new UserRowMapper());
-        return  jdbcTemplate.query("select id,firstname,lastname,city , country , phoneno,emailid from user", new UserRowMapper());
-=======
+        return jdbcTemplate.query("select id,firstname,lastname,city , country , phoneno,emailid from user", new UserRowMapper());
 
-    public List<User> getUsers() {
-        String sql = "SELECT * FROM user";
-
-        return jdbcTemplate.query(sql, new UserRowMapper());
-        //return  jdbcTemplate.query("select id, firstname, lastname, city, country, phoneno, emailid from user",  new UserRowMapper());
->>>>>>> 384b3fd98fd1c82ac0ed0c83fd266f42d71a1c87
     }
-
     public User findById(Integer id) {
 
         String sql = "SELECT * FROM user WHERE ID = ?";
@@ -57,11 +49,9 @@ public class UserRepository {
 
     public Boolean saveUser(User user){
         String query="insert into user values(?,?,?,?,?,?,?)";
-        return jdbcTemplate.execute(query,new PreparedStatementCallback<Boolean>(){
+        return jdbcTemplate.execute(query, new PreparedStatementCallback<Boolean>() {
             @Override
-            public Boolean doInPreparedStatement(PreparedStatement ps)
-                    throws SQLException, DataAccessException {
-
+            public Boolean doInPreparedStatement(PreparedStatement ps) throws SQLException, DataAccessException {
                 ps.setInt(1,user.getId());
                 ps.setString(2,user.getFirstname());
                 ps.setString(3,user.getLastname());
@@ -71,8 +61,9 @@ public class UserRepository {
                 ps.setString(7,user.getEmailid());
 
                 return ps.execute();
-
             }
+
+
         });
     }
 
@@ -88,3 +79,4 @@ public class UserRepository {
         return jdbcTemplate.update("delete from user where id = ?",id);
     }
 }
+

@@ -3,9 +3,12 @@ package spring.jdbc.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestBody;
 import spring.jdbc.model.FamilyMember;
 import spring.jdbc.model.FamilyRowMapper;
 
@@ -66,15 +69,17 @@ public class FamilyRepository implements FamilyDao {
     }
 
     @Override
-    public void updateMember(FamilyMember member) {
+    public int updateMember(FamilyMember member) {
         String query = "update family set " + "firstname = ?, lastname =?, age = ?" + " where id =?";
         Object[] parameters = {member.getFirstname(), member.getLastname(), member.getAge()};
         int[] types = {Types.INTEGER, Types.VARCHAR, Types.VARCHAR, Types.INTEGER};
 
-       
 
-        jdbcTemplate.update(query, parameters, types);
+
+       return jdbcTemplate.update(query, parameters, types);
     }
+
+
 
     @Override
     public List<FamilyMember> findAll() {
