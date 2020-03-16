@@ -3,7 +3,7 @@
 1. Project-1. Spring Boot REST API JDBC MySQL Gradle
 
 2. [Project-2. Spring Boot REST API JDBC MySQL Maven](https://github.com/Hamdambek/SpringBoot-Database/tree/master/Project2-SpringBoot-RestAPI-JDBC%20Template-MySQL-Maven/SpringJDBC)
- Family Member small project provides Spring Boot and JDBC template (using MySQL) implementation. In case of, Spring Boot using Maven configuration, and DB (database) using JDBC (only template not JPA ). 
+ * Family Member small project provides Spring Boot and JDBC template (using MySQL) implementation. In case of, Spring Boot using Maven configuration, and DB (database) using JDBC (only template not JPA ). 
  
 
 # Core data for Spring Boot with Database 
