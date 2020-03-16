@@ -5,6 +5,7 @@ package spring.database.model;
  * @project database
  * @Author Hamdamboy
  */
+
 public class User {
     //
     int id;

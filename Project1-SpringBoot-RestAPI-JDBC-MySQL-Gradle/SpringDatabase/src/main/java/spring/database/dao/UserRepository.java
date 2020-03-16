@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
 import spring.database.model.User;
 import spring.database.model.UserRowMapper;
-
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Types;
@@ -24,17 +23,22 @@ import java.util.List;
 public class UserRepository {
 
     @Autowired
-    JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
-    public List<User> getUser(){
+    public UserRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    public List<User> getUsers() {
+       // return jdbcTemplate.query(sql, new UserRowMapper());
         return  jdbcTemplate.query("select id,firstname,lastname,city , country , phoneno,emailid from user", new UserRowMapper());
     }
 
-    public User findById(Integer id){
+    public User findById(Integer id) {
 
         String sql = "SELECT * FROM user WHERE ID = ?";
         try{
-            return  (User) this.jdbcTemplate.queryForObject(sql, new Object[] { id }, new UserRowMapper());
+            return  (User) this.jdbcTemplate.queryForObject(sql, new Object[] {id}, new UserRowMapper());
         }
         catch(EmptyResultDataAccessException ex){
             return null;

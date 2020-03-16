@@ -1,6 +1,7 @@
 package spring.database.model;
 
 import javax.swing.tree.RowMapper;
+import javax.swing.tree.TreePath;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -25,4 +26,8 @@ public class UserRowMapper implements RowMapper {
     }
 
 
+    @Override
+    public int[] getRowsForPaths(TreePath[] path) {
+        return new int[0];
+    }
 }

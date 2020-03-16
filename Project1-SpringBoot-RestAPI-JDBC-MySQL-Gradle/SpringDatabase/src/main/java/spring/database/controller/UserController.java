@@ -32,7 +32,7 @@ public class UserController {
 
     @GetMapping
     public List<User> getAllUsers(){
-        return userRepository.getUser();
+        return userRepository.getUsers();
     }
 
     @GetMapping(value = "/{id}")
