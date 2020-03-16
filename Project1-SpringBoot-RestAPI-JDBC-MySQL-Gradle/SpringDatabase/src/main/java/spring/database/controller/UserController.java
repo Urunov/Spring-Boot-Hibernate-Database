@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import spring.database.dao.UserRepository;
 import spring.database.model.User;
 
+import java.lang.annotation.Documented;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
@@ -17,12 +18,12 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
     //
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @GetMapping("/main")
     public String test(){
@@ -30,7 +31,7 @@ public class UserController {
         return testing;
     }
 
-    @GetMapping
+    @GetMapping("/list")
     public List<User> getAllUsers(){
         return userRepository.getUsers();
     }
@@ -44,12 +45,11 @@ public class UserController {
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping(value = "/add")
     public ResponseEntity<String> createUser(@RequestBody User user) throws SQLIntegrityConstraintViolationException {
         if(userRepository.findById(user.getId()) != null) {
             return new ResponseEntity<String>("Duplicate Entry: " + user.getId(), HttpStatus.IM_USED);
         }
-
         userRepository.saveUser(user);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
@@ -64,6 +64,11 @@ public class UserController {
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
+    /**
+     * Deletes user by id
+     * @param id user's id where is being deleted
+     * @return ResponseEntity deleted user entity
+     * */
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable("id") Integer id) {
         User user = userRepository.findById(id);

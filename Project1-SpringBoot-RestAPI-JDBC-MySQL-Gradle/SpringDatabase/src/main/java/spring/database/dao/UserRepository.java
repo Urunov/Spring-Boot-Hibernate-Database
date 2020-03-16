@@ -24,6 +24,7 @@ public class UserRepository {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+<<<<<<< HEAD
 
     public UserRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -32,6 +33,14 @@ public class UserRepository {
     public List<User> getUsers() {
        // return jdbcTemplate.query(sql, new UserRowMapper());
         return  jdbcTemplate.query("select id,firstname,lastname,city , country , phoneno,emailid from user", new UserRowMapper());
+=======
+
+    public List<User> getUsers() {
+        String sql = "SELECT * FROM user";
+
+        return jdbcTemplate.query(sql, new UserRowMapper());
+        //return  jdbcTemplate.query("select id, firstname, lastname, city, country, phoneno, emailid from user",  new UserRowMapper());
+>>>>>>> 384b3fd98fd1c82ac0ed0c83fd266f42d71a1c87
     }
 
     public User findById(Integer id) {
