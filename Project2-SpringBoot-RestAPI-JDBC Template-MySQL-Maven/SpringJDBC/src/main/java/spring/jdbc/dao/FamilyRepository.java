@@ -68,6 +68,10 @@ public class FamilyRepository implements FamilyDao {
         });
     }
 
+    /**
+     *
+     * Update needs to find differnt way
+    * */
     @Override
     public int updateMember(FamilyMember member) {
         String query = "update family set " + "firstname = ?, lastname =?, age = ?" + " where id =?";
