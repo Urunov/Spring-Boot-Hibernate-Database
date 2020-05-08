@@ -1,5 +1,5 @@
 # SpringBoot-Database
- 
+More valuable information also here ([let's go](https://dev.to/urunov/how-to-handle-database-in-spring-boot-560))
 1.  [Project-1. Spring Boot REST API JDBC MySQL Gradle](https://github.com/Hamdambek/SpringBoot-Database/tree/master/Project1-SpringBoot-RestAPI-JDBC-MySQL-Gradle)
      * Gradle project provides Spring Boot and JDBC (using Gradle)
 2. [Project-2. Spring Boot REST API JDBC MySQL Maven](https://github.com/Hamdambek/SpringBoot-Database/tree/master/Project2-SpringBoot-RestAPI-JDBC%20Template-MySQL-Maven/SpringJDBC)
