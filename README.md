@@ -46,3 +46,7 @@ H2
 * H2 is a relational database management system written in Java. It can be embedded in Java applications or run in client-server mode.
  
  ![H2 DB](https://user-images.githubusercontent.com/11626327/76680851-d61de180-662f-11ea-80c8-3a49632ff246.JPG)
+## Regference
+
+1. https://github.com/RameshMF/Hibernate-ORM-Tutorials
+2. https://data-flair.training/blogs/spring-jdbc/
