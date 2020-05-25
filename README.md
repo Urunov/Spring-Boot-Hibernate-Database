@@ -1,5 +1,11 @@
+
+# Spring-MVC-SpringBoot-Hibernate-ORM-Database
+
+![springMove](https://user-images.githubusercontent.com/11626327/82535853-7b9a8780-9b82-11ea-9d4d-bbda1711912f.jpg)
+
+
 # SpringBoot-Database
- 
+More valuable information also here ([let's go](https://dev.to/urunov/how-to-handle-database-in-spring-boot-560))
 1.  [Project-1. Spring Boot REST API JDBC MySQL Gradle](https://github.com/Hamdambek/SpringBoot-Database/tree/master/Project1-SpringBoot-RestAPI-JDBC-MySQL-Gradle)
      * Gradle project provides Spring Boot and JDBC (using Gradle)
 2. [Project-2. Spring Boot REST API JDBC MySQL Maven](https://github.com/Hamdambek/SpringBoot-Database/tree/master/Project2-SpringBoot-RestAPI-JDBC%20Template-MySQL-Maven/SpringJDBC)
@@ -40,3 +46,7 @@ H2
 * H2 is a relational database management system written in Java. It can be embedded in Java applications or run in client-server mode.
  
  ![H2 DB](https://user-images.githubusercontent.com/11626327/76680851-d61de180-662f-11ea-80c8-3a49632ff246.JPG)
+## Regference
+
+1. https://github.com/RameshMF/Hibernate-ORM-Tutorials
+2. https://data-flair.training/blogs/spring-jdbc/
