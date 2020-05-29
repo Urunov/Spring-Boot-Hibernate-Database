@@ -4,7 +4,7 @@
 ![springMove](https://user-images.githubusercontent.com/11626327/82535853-7b9a8780-9b82-11ea-9d4d-bbda1711912f.jpg)
 
 # 
-## Spring Framerwork Architecure and Spring Framerwork Runtime 
+## Spring Framework Architecure and Spring Framework Runtime 
 ![3 tier layer Jarsey   SpringBoot](https://user-images.githubusercontent.com/11626327/83234663-a2cd0680-a1cb-11ea-97b2-d268143cc972.jpg)
 #
 
