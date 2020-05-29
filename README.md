@@ -3,7 +3,10 @@
 
 ![springMove](https://user-images.githubusercontent.com/11626327/82535853-7b9a8780-9b82-11ea-9d4d-bbda1711912f.jpg)
 
-
+# 
+## Spring Framerwork Architecure and Spring Framerwork Runtime 
+![3 tier layer Jarsey   SpringBoot](https://user-images.githubusercontent.com/11626327/83234663-a2cd0680-a1cb-11ea-97b2-d268143cc972.jpg)
+#
 # SpringBoot-Database
 More valuable information also here ([let's go](https://dev.to/urunov/how-to-handle-database-in-spring-boot-560))
 1.  [Project-1. Spring Boot REST API JDBC MySQL Gradle](https://github.com/Hamdambek/SpringBoot-Database/tree/master/Project1-SpringBoot-RestAPI-JDBC-MySQL-Gradle)
