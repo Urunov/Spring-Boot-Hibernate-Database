@@ -15,7 +15,7 @@ More valuable information also here ([let's go](https://dev.to/urunov/how-to-han
      * Gradle project provides Spring Boot and JDBC (using Gradle)
 2. [Project-2. Spring Boot REST API JDBC MySQL Maven](https://github.com/Hamdambek/SpringBoot-Database/tree/master/Project2-SpringBoot-RestAPI-JDBC%20Template-MySQL-Maven/SpringJDBC)
      * Family Member small project provides Spring Boot and JDBC template (using MySQL) implementation. In case of, Spring Boot using Maven configuration, and DB (database) using JDBC (only template not JPA ). 
-3.  [Project-3. SpringMVC-Boot2-JSP-JPA-Hibernate5-MySQL]https://github.com/Urunov/Spring-DAO-ORM-JEE-Web-AOP-Core-Boot/tree/master/Project3-SpringMVC-Boot2-JSP-JPA-Hibernate5-MySQL)
+3.  [Project-3. SpringMVC-Boot2-JSP-JPA-Hibernate5-MySQL](https://github.com/Urunov/Spring-DAO-ORM-JEE-Web-AOP-Core-Boot/tree/master/Project3-SpringMVC-Boot2-JSP-JPA-Hibernate5-MySQL)
      * This project provides Spring Boot and JDBC  
      * http://localhost:8080/users just use exisiting DB 
 4. [Project-4. SpringBoot-ToDo-Project](https://github.com/Urunov/Spring-DAO-ORM-JEE-Web-AOP-Core-Boot/tree/master/Project4-SpringBoot-ToDo-Project)
