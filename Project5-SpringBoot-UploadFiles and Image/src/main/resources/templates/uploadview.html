@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Upload Files</title>
+<body>
+<h1> <center> Upload Files and store upload folder in the your source directory. </center></h1>
+    <form action ="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="files" multiple >
+        <input type="submit" value="Upload Files">
+
+    </form>
+</body>
+</html>

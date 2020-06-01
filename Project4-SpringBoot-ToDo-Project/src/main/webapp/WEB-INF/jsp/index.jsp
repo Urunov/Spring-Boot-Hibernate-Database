@@ -29,9 +29,9 @@
 <div>
 
     <ul class="navigation-bar">
-        <li><a href="/">Todos</a></li>
-        <li><a href="new-todo">Create Todo</a></li>
-        <li><a href="all-todos">All Todos</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="new-todo">Create Plan </a></li>
+        <li><a href="all-todos">All Plans</a></li>
     </ul>
 
 </div>
@@ -46,10 +46,11 @@
 
             <div class="jumbotron text-center">
 
-                <h1>Welcome to my Todo Schedule Manager </h1>
+                <h1>Welcome <br> to Todo Manager  </h1>
 
             </div>
-
+            <h7> <i> <right> Practical small Project in the Spring Boot and Hibernate, JSP, ect.</right></i></h7>
+                <!--img src="**/image/schedule.jpg" / -->
         </div>
 
     </c:when>
