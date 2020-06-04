@@ -25,7 +25,7 @@ More valuable information also here ([let's go](https://dev.to/urunov/how-to-han
      * Uplad and Download files Store in DB (MySQL in example) 
     
 
-# Core data for Spring Boot with Database [details....](https://dev.to/urunov/how-to-handle-database-in-spring-boot-560)
+## Core data for Spring Boot with Database [details....](https://dev.to/urunov/how-to-handle-database-in-spring-boot-560)
 
 This provides Database implementation in the Spring Boot. Indeed, We should breifly inform here concept of Spring, Spring Boot, JDBC, JPA, H2.
 
