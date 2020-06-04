@@ -32,5 +32,6 @@ This provides Database implementation in the Spring Boot. Indeed, We should brei
 
 ## Regference
 
-1. https://github.com/RameshMF/Hibernate-ORM-Tutorials
-2. https://data-flair.training/blogs/spring-jdbc/
+1. https://dev.to/urunov
+2. https://github.com/RameshMF/Hibernate-ORM-Tutorials
+3. https://data-flair.training/blogs/spring-jdbc/
