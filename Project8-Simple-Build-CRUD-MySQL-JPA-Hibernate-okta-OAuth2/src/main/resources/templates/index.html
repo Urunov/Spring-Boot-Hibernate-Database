@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="w-75">
+            <p/>
+            <div th:if="${user.claims.containsKey('appName')}"
+                 class="alert alert-success text-center" role="alert"
+            >
+                <h2 th:text="${user.claims.appName}"></h2>
+            </div>
+            <p/>
+            <div th:if="${user.claims.containsKey('name')}"
+                 class="alert alert-primary text-center" role="alert"
+            >
+                <h3 th:inline="text">Welcome [[${user.claims.name}]]!</h3>
+            </div>
+            <div class="alert alert-secondary text-center">
+                <div th:switch="${userEvents}" class="container my-5">
+                    <div class="col-md-10">
+                        <h2 th:case="null">No User Events yet!</h2>
+                        <div th:case="*">
+                            <table class="table table-striped table-responsive-md">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Login Date/Time</th>
+                                    <th>Token Date/Time</th>
+                                    <th>Last View Date/Time</th>
+                                    <th th:if="${isAdmin}">Delete</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="userEvent : ${userEvents}">
+                                    <td th:text="${userEvent.name}"></td>
+                                    <td th:text="${userEvent.loginAtString}"></td>
+                                    <td th:text="${userEvent.tokenIssuedAtString}"></td>
+                                    <td th:text="${userEvent.lastViewedAtString}"></td>
+                                    <td th:if="${isAdmin}"><a th:href="@{/delete/{id}(id=${userEvent.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
