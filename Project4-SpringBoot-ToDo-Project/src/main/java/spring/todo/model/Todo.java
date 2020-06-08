@@ -71,7 +71,7 @@ public class Todo implements Serializable {
 
     public Todo(String name, String description, Date dateCreate, boolean finished){
         super();
-        this.id = id;
+
         this.name = name;
         this.description = description;
         this.dateCreate = dateCreate;

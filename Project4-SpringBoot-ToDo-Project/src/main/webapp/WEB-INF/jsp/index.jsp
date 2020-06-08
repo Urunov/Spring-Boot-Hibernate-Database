@@ -50,7 +50,7 @@
 
             </div>
             <h7> <i> <right> Practical small Project in the Spring Boot and Hibernate, JSP, ect.</right></i></h7>
-                <!--img src="**/image/schedule.jpg" / -->
+
         </div>
 
     </c:when>
@@ -59,7 +59,7 @@
 
         <div class="container text-center" id="tasksDiv">
 
-            <h3>My Todos</h3>
+            <h3>My Plan(s) on Progressing List</h3>
 
             <hr>
 
@@ -87,14 +87,10 @@
                             <td>${todo.id}</td>
                             <td>${todo.name}</td>
                             <td>${todo.description}</td>
+                            <td>${todo.dateCreate}</td>
 
-                            <td>
-                                <fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${todo.dateCreated}" />
-                            </td>
                             <td>${todo.finished}</td>
-
                             <td>
-
                                 <a href="update-todo?id=${todo.id}">
                                     <span>&#x1f589;</span></a>
                             </td>
@@ -112,9 +108,9 @@
         </div>
     </c:when>
 
+
+
     <c:when test="${mode == 'MODE_NEW' || mode == 'MODE_UPDATE'}">
-
-
 
         <div class="container">
 
@@ -125,37 +121,48 @@
                 </div>
 
                 <hr />
+
                 <input type="hidden" name="id" value="${todo.id}" />
+
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" name="name" value="${todo.name}" />
+                   <%--@declare id="name"--%><label for="name">Name</label>
+                   <input type="text" class="form-control" name="name" value="${todo.name}" />
 
                 </div>
 
                 <div class="form-group">
 
-                    <label for="description">Description</label>
+                   <%--@declare id="description"--%><label for="description">Description</label>
                     <input type="text" class="form-control" name="description" value="${todo.description}" />
 
                 </div>
 
                 <div class="form-group">
 
-                    <label for="finished">Finished</label>
+                    <%--@declare id="finished"--%><label for="finished">Finished</label>
                     <div class="col-md-7">
                         <input type="radio" class="col-sm-1" name="finished" value="true" />
                         <span class="col-sm-1">Yes</span>
                         <input type="radio" class="col-sm-1" name="finished" value="false" checked />
                         <span class="col-sm-1">No</span>
                     </div>
-                </div>
+
+
+            </div>
+
+
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Save" />
                 </div>
+
+
             </form>
+
         </div>
 
-    </c:when>
+      </c:when>
+
+
 </c:choose>
 </body>
 </html>

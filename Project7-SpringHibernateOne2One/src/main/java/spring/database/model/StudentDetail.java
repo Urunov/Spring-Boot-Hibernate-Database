@@ -25,10 +25,15 @@ public class StudentDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(unique = true, length=25)
+    private String email;
+
     @OneToOne(mappedBy = "studentDetail")
     private Student student;
 
-    public StudentDetail(Integer age){
+    public StudentDetail(Integer age, String email){
         this.age = age;
+        this.email = email;
     }
 }

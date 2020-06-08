@@ -26,13 +26,7 @@ public class TodosController {
     @GetMapping(name = "/")
     public String home(HttpServletRequest request) {
         request.setAttribute("mode", "MODE_HOME");
-        return "index";
-    }
 
-    @GetMapping("/all-todos")
-    public String allTodos(HttpServletRequest request){
-        request.setAttribute("todos", todoService.findAll());
-        request.setAttribute("mode", "MODE_TODOS");
         return "index";
     }
 
@@ -42,44 +36,23 @@ public class TodosController {
         return "index";
     }
 
-    @PostMapping("/save_todo")
+    @PostMapping("/save-todo")
     public String saveTodo(@ModelAttribute Todo todo, BindingResult bindingResult, HttpServletRequest request){
         todo.setDateCreate(new Date());
-        todoService.save(todo);
         request.setAttribute("todos", todoService.findAll());
         request.setAttribute("mode", "MODE_UPDATE");
+        request.setAttribute("mode", "MODE_NEW");
+        todoService.save(todo);
+
         return "index";
     }
 
-
-//   @PostMapping("/save_todo")
-//    public String saveTodo(@RequestParam String name, String description, Date date, BindingResult bindingResult, @ModelAttribute HttpServletRequest request, ModelMap modelMap){
-//
-//
-//      Todo todo = new Todo();
-//       if(bindingResult.hasErrors()){
-//           JFormattedTextField.getDefaultLocale();
-//       } else{
-//           modelMap.addAttribute(todo);
-//       }
-//
-//        todo.setName(name);
-//        todo.setDescription(description);
-//        todo.setDateCreate(new Date());
-//
-//        request.setAttribute("todos", todoService.findAll());
-//        request.setAttribute("mode", "MODE_TODO");
-//
-//        todoService.save(todo);
-//
-//        return "index";
-//    }
 
 
     @GetMapping("/update-todo")
     public String updateTodo(@RequestParam int id, HttpServletRequest request) {
         request.setAttribute("todo", todoService.findTodo(id).get());
-        request.setAttribute("mode", "MODE_UPDlATE");
+        request.setAttribute("mode", "MODE_UPDATE");
         return "index";
     }
 
@@ -88,6 +61,14 @@ public class TodosController {
         todoService.delete(id);
         request.setAttribute("todos", todoService.findAll());
         request.setAttribute("mode", "MODE_TODOS");
+        return "index";
+    }
+
+    @GetMapping("/all-todos")
+    public String listAll(HttpServletRequest request){
+
+        request.setAttribute("mode", "MODE_TODOS");
+        request.setAttribute("todos", todoService.findAll());
         return "index";
     }
 }

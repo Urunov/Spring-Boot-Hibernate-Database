@@ -34,4 +34,11 @@ public class StudentController {
     public Student filterByName(@RequestParam("name") String name){
         return studentRepository.findByName(name);
     }
+
+    @GetMapping("/all")
+    public String findAll() {
+        List<Student> students = studentRepository.findAll();
+
+           return "Student: " + students;
+    }
 }
