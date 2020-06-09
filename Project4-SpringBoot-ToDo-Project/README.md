@@ -1,6 +1,7 @@
 
 
-     * Todo project provides Spring Boot and JDBC template (using MySQL) implementation. In case of, Spring Boot using Maven configuration, and DB (database) using JDBC (only template not JPA ).
+     * Todo project provides Spring Boot and JDBC template (using MySQL) implementation. 
+     In case of, Spring Boot using Maven configuration, and DB (database) using JDBC (only template not JPA ).
      * The mainly 2 parameters: Adding todo list of the daily, List all of DB todo lists.
 
 Figure-1. Spring MyScheduler total db informations.
@@ -14,12 +15,13 @@ Important:
         <version>2.3.0.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>spring</groupId>
+  
+  <groupId>spring</groupId>
     <artifactId>todo</artifactId>
     <version>0.0.1</version>
     <name>todo</name>
     <description>Demo project for Spring Boot</description>
 
-    <properties>
-        <java.version>11</java.version>
-    </properties>
+   | <properties>
+   |     <java.version>11</java.version>
+   | </properties>
