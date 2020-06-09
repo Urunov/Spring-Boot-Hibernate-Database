@@ -4,6 +4,10 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 
 <html>
 
@@ -46,7 +50,10 @@
 
             <div class="jumbotron text-center">
 
-                <h1>Welcome <br> to Todo Manager  </h1>
+                <h1>
+          Welcome            <br> to My Scheduler
+
+                </h1>
 
             </div>
             <h7> <i> <right> Practical small Project in the Spring Boot and Hibernate, JSP, ect.</right></i></h7>
@@ -70,7 +77,7 @@
                     <thead>
 
                     <tr>
-                        <th>TodoId</th>
+                        <th>Id</th>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Date Created</th>
@@ -88,8 +95,9 @@
                             <td>${todo.name}</td>
                             <td>${todo.description}</td>
                             <td>${todo.dateCreate}</td>
-
                             <td>${todo.finished}</td>
+
+
                             <td>
                                 <a href="update-todo?id=${todo.id}">
                                     <span>&#x1f589;</span></a>
@@ -101,6 +109,7 @@
 										<i class="fa fa-trash"></i></span></a>
                             </td>
                         </tr>
+
                     </c:forEach>
                     </tbody>
                 </table>
@@ -114,26 +123,32 @@
 
         <div class="container">
 
-            <form class="form-horizontal" method="POST" action="save-todo">
+            <form th:th:action="@{/suggest-event}" class="form-horizontal" method="POST" action="save-todo">
+
+                    <%-- <form:errors path="*" cssClass="error" /> --%>
 
                 <div class="text-center">
-                    <h3>Manage Todo</h3>
+                    <h3>Manage Your Schedule (add/update)</h3>
                 </div>
 
                 <hr />
 
                 <input type="hidden" name="id" value="${todo.id}" />
 
+                  <div class="form-group">
+<%--                      <div  id="name.errors" class="error">--%>
+
+<%--                      </div>--%>
+                        <%--@declare id="name"--%><label for="name">Name</label>
+                       <input type="text" class="form-control" name="name" value="${todo.name}" />
+<%--                       <form:errors path="name" cssClass="error" />--%>
+                  </div>
+
                 <div class="form-group">
-                   <%--@declare id="name"--%><label for="name">Name</label>
-                   <input type="text" class="form-control" name="name" value="${todo.name}" />
 
-                </div>
+                       <%--@declare id="description"--%><label for="description">Description</label>
+                        <input type="text" class="form-control" name="description" value="${todo.description}" />
 
-                <div class="form-group">
-
-                   <%--@declare id="description"--%><label for="description">Description</label>
-                    <input type="text" class="form-control" name="description" value="${todo.description}" />
 
                 </div>
 
@@ -149,7 +164,6 @@
 
 
             </div>
-
 
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Save" />

@@ -3,7 +3,8 @@ package spring.todo.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 /**
  * @Created 26 / 05 / 2020 - 11:10 AM
  * @project SpringToDo
@@ -16,7 +17,13 @@ public class Todo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Size(min =3, max=50)
+    @NotBlank
     private String name;
+
+    @NotBlank
+    @Size(min=3, max=150)
     private String description;
 
     @Temporal(TemporalType.TIMESTAMP)
