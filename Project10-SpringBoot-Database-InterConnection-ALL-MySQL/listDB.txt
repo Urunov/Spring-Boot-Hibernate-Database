@@ -1,0 +1,5 @@
+https://www.callicoder.com/hibernate-spring-boot-jpa-embeddable-demo/
+
+https://github.com/callicoder/jpa-hibernate-tutorials
+
+https://github.com/attacomsian/statistics-api
