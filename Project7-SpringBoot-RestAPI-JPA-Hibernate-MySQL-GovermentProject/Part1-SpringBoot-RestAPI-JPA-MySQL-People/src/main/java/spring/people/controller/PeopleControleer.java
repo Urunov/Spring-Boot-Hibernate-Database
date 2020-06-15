@@ -3,10 +3,8 @@ package spring.people.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import spring.people.model.People;
 import spring.people.repository.PeopleDAO;
 
@@ -43,6 +41,30 @@ public class PeopleControleer {
 
         peopleDAO.save(people);
 
+        return "redirect:/";
+    }
+
+
+    @GetMapping("/edit/{id}")
+    public ModelAndView showEditForm(@PathVariable (name = "id") int id){
+        ModelAndView modelAndView = new ModelAndView("edit_form");
+        People people = peopleDAO.getOne(id);
+
+        modelAndView.addObject("people", people);
+
+        return modelAndView;
+    }
+
+    @PostMapping("/update")
+    public String update(@ModelAttribute("people") People people){
+        peopleDAO.saveAndFlush(people);
+
+        return "redirect:/";
+    }
+
+    @RequestMapping("/delete/{id}")
+    public String delete(@PathVariable(name = "id") int id){
+        peopleDAO.deleteById(id);
         return "redirect:/";
     }
 

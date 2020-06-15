@@ -3,13 +3,13 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
-    <title>Edit Sale</title>
+    <title>Edit Person Information</title>
 </head>
 <body>
 <div align="center">
-    <h1>Edit Sale</h1>
+    <h1>Edit Person</h1>
     <br />
-    <form action="#" th:action="@{/update}" th:object="${sale}"
+    <form action="#" th:action="@{/update}" th:object="${people}"
           method="post">
 
         <table border="0" cellpadding="10">
@@ -18,16 +18,32 @@
                 <td><input type="text" th:field="*{id}" readonly="readonly" /></td>
             </tr>
             <tr>
-                <td>Item Name:</td>
-                <td><input type="text" th:field="*{item}" /></td>
+                <td> Name:</td>
+                <td><input type="text" th:field="*{name}" /></td>
             </tr>
             <tr>
-                <td>Quantity:</td>
-                <td><input type="text" th:field="*{quantity}" /></td>
+                <td>Family Name:</td>
+                <td><input type="text" th:field="*{familyName}" /></td>
             </tr>
             <tr>
-                <td>Amount (USD):</td>
-                <td><input type="text" th:field="*{amount}" /></td>
+                <td>Age:</td>
+                <td><input type="text" th:field="*{age}" /></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><input type="text" th:field="*{address}" /></td>
+            </tr>
+            <tr>
+                <td>Marriage:</td>
+                <td><input type="text" th:field="*{marage}" /></td>
+            </tr>
+            <tr>
+                <td>Nationality:</td>
+                <td><input type="text" th:field="*{nationality}" /></td>
+            </tr>
+            <tr>
+                <td>Education:</td>
+                <td><input type="text" th:field="*{education}" /></td>
             </tr>
             <tr>
                 <td colspan="2"><button type="submit">Save</button> </td>

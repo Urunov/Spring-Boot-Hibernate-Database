@@ -3,12 +3,12 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
-    <title>Sales Manager Application</title>
+    <title>People Manager Application</title>
 </head>
 <body>
 <div align="center">
-    <h1>People Information</h1>
-    <a href="/new">Enter New person</a>
+    <h1>Country People Information</h1>
+    <a href="/new">Enter New Person</a>
     <br/><br/>
     <table border="1" cellpadding="10">
         <thead>
@@ -18,9 +18,10 @@
             <th>Family Name</th>
             <th>Age</th>
             <th>Address</th>
-            <th>Marage</th>
+            <th>Marriage</th>
             <th>Nationality</th>
             <th>Education</th>
+            <th> Change Values</th>
 
 
         </tr>
@@ -32,7 +33,7 @@
             <td th:text="${people.familyName}">Family Name</td>
             <td th:text="${people.age}">Age</td>
             <td th:text="${people.address}">Address</td>
-            <td th:text="${people.marage}">Marrage</td>
+            <td th:text="${people.marage}">Marriage</td>
             <td th:text="${people.nationality}">Nationality</td>
             <td th:text="${people.education}">Eduction</td>
 
