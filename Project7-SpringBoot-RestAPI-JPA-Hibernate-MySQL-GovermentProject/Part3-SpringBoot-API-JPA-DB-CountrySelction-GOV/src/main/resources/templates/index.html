@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>People Manager Application</title>
+</head>
+<body>
+<br align="center">
+    <h1>Country People Information</h1>
+    <a href="/new">Enter New Person</a>
+    <br/><br/>
+
+
+    <form th:action="@{/}">
+        Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+        &nbsp;
+        <input type="submit" value="Search" />
+        &nbsp;
+        <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+    </form>
+
+
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Family Name</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Marriage</th>
+            <th>Nationality</th>
+            <th>Education</th>
+            <th> Change Values</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="people : ${peopleList}">
+            <td th:text="${people.id}">ID</td>
+            <td th:text="${people.name}"> Name</td>
+            <td th:text="${people.familyName}">Family Name</td>
+            <td th:text="${people.age}">Age</td>
+            <td th:text="${people.address}">Address</td>
+            <td th:text="${people.marage}">Marriage</td>
+            <td th:text="${people.nationality}">Nationality</td>
+            <td th:text="${people.education}">Eduction</td>
+
+            <td>
+                <a th:href="@{'/edit/' + ${people.id}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${people.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/}]]";
+    }
+</script>
+
+</body>
+</html>
