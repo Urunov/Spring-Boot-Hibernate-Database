@@ -24,7 +24,24 @@ More valuable information also here ([let's go](https://dev.to/urunov/how-to-han
      * Spring Boot + Web + MySQL Thyeamleaf.
      * Uplad and Download files Store in DB (MySQL in example) 
     
-
+7. [Project7 - Spring Boot REST API - JPA- Hibernate-Thymeleaf](https://github.com/Urunov/Spring-Boot-Hibernate-Thymeleaf/tree/master/Project7-SpringBoot-RestAPI-JPA-Hibernate-MySQL-GovermentProject)
+     * Spring Boot + Web + MySQL Thyeamleaf.
+     * Project of Goverment population control related to People Inforamtion CRUD process. 
+         -> Part1- Spring Boot REST API- MySQL-Thymeleaf: 
+             Just adding and updating people to DB(MySQL), using Spring Boot, MySQL, Hibernate + Thymeleaf template
+             
+         -> Part2- Spring Boot REST API- MySQL-Thymeleaf-Many-to-Many: 
+             Just adding and updating + SEARCHING bar people to DB(MySQL), using Spring Boot, MySQL, Hibernate + Thymeleaf template
+         
+         -> Part3- Spring Boot REST API- MySQL-Thymeleaf- Country Selection, Time selection, difference (Backed end thymeleaf): 
+             Just adding and updating people to DB(MySQL), using Spring Boot, MySQL, Hibernate + Thymeleaf template
+     
+     
+     
+8. [Project8 -Simple-Build-CRUD-MySQL-JPA-Hibernate-okta-OAuth2](https://github.com/Urunov/Spring-Boot-Hibernate-Thymeleaf/tree/master/Project8-Simple-Build-CRUD-MySQL-JPA-Hibernate-okta-OAuth2B)
+     * Spring Boot + Web + MySQL Thyeamleaf + Security.
+     * Ongoing project Updating
+     
 ## Core data for Spring Boot with Database [details....](https://dev.to/urunov/how-to-handle-database-in-spring-boot-560)
 
 This provides Database implementation in the Spring Boot. Indeed, We should breifly inform here concept of Spring, Spring Boot, JDBC, JPA, H2.
