@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Add Person </title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <!----------------------------->
+
+    <link th:rel="stylesheet" th:href="@{assets/bootstrap-datepicker/css/bootstrap-datepicker.css}"/>
+    <link th:rel="stylesheet" th:href="@{assets/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css}"/>
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{webjars/font-awesome/5.11.2/css/all.css} "/>
+
+
+    <!-------------------------->
+
+    <link th:rel="stylesheet" th:href="@{/assets/bootstrap-select/css/bootstrap-select.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/assets/bootstrap-select-country/css/bootstrap-select-country.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/assets/bootstrap-select-country/css/bootstrap4-support.css} "/>
+
+    <!-------------------------->
+</head>
+
+<body>
+<!-- Navigation  MENU Part  -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">Country Population: People add/remove Project v.0.1</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sign In</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!----- Menu bar ended.--------->
+
+<div align="center">
+    <h1>This region population</h1>
+    <br />
+
+    <br/>
+
+
+    <form th:action="@{/search}">
+        <strong> Filter: </strong><input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+        &nbsp;
+        <input type="submit" value="Search" />
+        &nbsp;
+        <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+    </form>
+        <br />
+        <br />
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Family Name</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Marriage</th>
+            <th>Nationality</th>
+            <th>Education</th>
+            <th> Change Values</th>
+
+
+        </tr>
+        </thead>
+        <tr th:each="people : ${peopleList}">
+            <td th:text="${people.id}">ID</td>
+            <td th:text="${people.name}"> Name</td>
+            <td th:text="${people.familyName}">Family Name</td>
+            <td th:text="${people.birthdate}">Age</td>
+            <td th:text="${people.address}">Address</td>
+            <td th:text="${people.marriage}">Marriage</td>
+            <td th:text="${people.nationality}">Nationality</td>
+            <td th:text="${people.education}">Eduction</td>
+
+            <td>
+                <a th:href="@{'/edit/' + ${people.id}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${people.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+    <!----------------  Date ------------->
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{assets/bootstrap-datepicker/js/bootstrap-datepicker.js}"></script>
+
+    <!------------------------------------>
+
+    <!-----------------Country ----------->
+    <script th:src="@{/assets/bootstrap-select/js/bootstrap-select.min.js}"></script>
+    <script th:src="@{/assets/bootstrap-select-country/js/bootstrap-select-country.min.js}"></script>
+    <!------------------------------------>
+
+    <script>
+        $('.input-group.date').datepicker({
+            autoclose: true,
+            todayHighlight: true,
+            format: "mm/dd/yyyy"
+        });
+
+        $('.countrypicker').countrypicker();
+    </script>
+<script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/}]]";
+    }
+</script>
+
+</body>
+</html>
