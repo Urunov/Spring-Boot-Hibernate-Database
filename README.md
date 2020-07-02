@@ -27,13 +27,13 @@ More valuable information also here ([let's go](https://dev.to/urunov/how-to-han
 7. [Project7 - Spring Boot REST API - JPA- Hibernate-Thymeleaf](https://github.com/Urunov/Spring-Boot-Hibernate-Thymeleaf/tree/master/Project7-SpringBoot-RestAPI-JPA-Hibernate-MySQL-GovermentProject)
      * Spring Boot + Web + MySQL Thyeamleaf.
      * Project of Goverment population control related to People Inforamtion CRUD process. 
-         -> Part1- Spring Boot REST API- MySQL-Thymeleaf: 
+         ->Project1- Spring Boot REST API- MySQL-Thymeleaf: 
              Just adding and updating people to DB(MySQL), using Spring Boot, MySQL, Hibernate + Thymeleaf template
              
-         -> Part2- Spring Boot REST API- MySQL-Thymeleaf-Many-to-Many: 
+         -> Project2- Spring Boot REST API- MySQL-Thymeleaf-Many-to-Many: 
              Just adding and updating + SEARCHING bar people to DB(MySQL), using Spring Boot, MySQL, Hibernate + Thymeleaf template
          
-         -> Part3- Spring Boot REST API- MySQL-Thymeleaf- Country Selection, Time selection, difference (Backed end thymeleaf): 
+         -> Project3- Spring Boot REST API- MySQL-Thymeleaf- Country Selection, Time selection, difference (Backed end thymeleaf): 
              Just adding and updating people to DB(MySQL), using Spring Boot, MySQL, Hibernate + Thymeleaf template
      
      
