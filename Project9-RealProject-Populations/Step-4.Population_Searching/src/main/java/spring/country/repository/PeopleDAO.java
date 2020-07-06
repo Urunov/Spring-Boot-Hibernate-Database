@@ -15,6 +15,6 @@ import java.util.List;
 public interface PeopleDAO extends JpaRepository<People, Integer> {
 
 
-    @Query("SELECT p FROM People p WHERE CONCAT(p.Name, ' ', p.birthdate, ' ', p.FamilyName, ' ', p.Education, ' ', p.Address, ' ', p.marriage) LIKE %?1%")
+    @Query("SELECT p FROM People p WHERE CONCAT(p.firstName, ' ', p.birthdate, ' ', p.lastName, ' ', p.education, ' ', p.address, ' ', p.marriage) LIKE %?1%")
     List<People> search(String keyword);
 }

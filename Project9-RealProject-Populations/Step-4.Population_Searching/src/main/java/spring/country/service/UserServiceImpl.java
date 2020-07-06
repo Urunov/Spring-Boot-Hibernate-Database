@@ -50,8 +50,6 @@ public class UserServiceImpl implements UserService {
         return super.toString();
     }
 
-
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
@@ -68,7 +66,4 @@ public class UserServiceImpl implements UserService {
 
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
     }
-
-
-
 }

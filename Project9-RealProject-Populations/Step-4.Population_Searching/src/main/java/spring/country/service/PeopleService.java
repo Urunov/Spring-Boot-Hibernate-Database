@@ -1,47 +1,24 @@
 package spring.country.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
 import spring.country.model.People;
-import spring.country.repository.PeopleDAO;
-
 
 import java.util.List;
 
 /**
- * @Created 15 / 06 / 2020 - 5:59 PM
- * @project SpringBootPeople
+ * @Created 06 / 07 / 2020 - 12:20 PM
+ * @project SpringCountryDBThymelead
  * @Author Hamdamboy
  */
-@Service
-public class PeopleService {
+public interface PeopleService{
 
-    @Autowired
-    private PeopleDAO peopleDAO;
+    List<People> getAllPeople();
 
-    public List<People> listAll(String keyword) {
-        if(keyword !=null){
-            return peopleDAO.search(keyword);
-        }
-        return peopleDAO.findAll();
-    }
-//    public List<People> listAll(){
-//        return peopleDAO.findAll();
-//    }
+    void save(People people);
 
-    public void save(People people) {
-        peopleDAO.save(people);
-    }
+    People getPeopleId(int id);
 
-    public People get(Integer id) {
-        return peopleDAO.findById(id).get();
-    }
+    void deletePeopleById(int id);
 
-    public void delete(Integer id){
-        peopleDAO.deleteById(id);
-    }
-
-    public void saveAndFlush(People people) {
-        peopleDAO.save(people);
-    }
+    Page<People> findPaginated(int pageNo, int pageSize, String sortField, String sortDierection);
 }

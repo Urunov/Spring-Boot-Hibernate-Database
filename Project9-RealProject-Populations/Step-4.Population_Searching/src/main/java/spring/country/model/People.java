@@ -24,28 +24,99 @@ public class People {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @NotNull
-    private String Name;
+    private String firstName;
     @NotNull
-    private String FamilyName;
+    private String lastName;
 
     @DateTimeFormat(pattern = "MM/dd/yyyy")
     private Date birthdate;
 
     @NotNull
-    private String Country;
+    private String country;
 
     @NotNull
-    private String Address;
+    private String address;
 
     @NotNull
     private Boolean marriage;
 
     @NotNull
-    private String Nationality;
+    private String nationality;
 
     @NotNull
-    private String Education;
+    private String education;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Date getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(Date birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Boolean getMarriage() {
+        return marriage;
+    }
+
+    public void setMarriage(Boolean marriage) {
+        this.marriage = marriage;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
+    }
 //    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 //
 ////    @JoinTable(
@@ -59,77 +130,7 @@ public class People {
     public People() {
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String name) {
-        Name = name;
-    }
-
-    public String getFamilyName() {
-        return FamilyName;
-    }
-
-    public void setFamilyName(String familyName) {
-        FamilyName = familyName;
-    }
-
-    public Date getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
-    }
-
-    public String getCountry() {
-        return Country;
-    }
-
-    public void setCountry(String country) {
-        Country = country;
-    }
-
-    public String getAddress() {
-        return Address;
-    }
-
-    public void setAddress(String address) {
-        Address = address;
-    }
-
-    public Boolean getMarriage() {
-        return marriage;
-    }
-
-    public void setMarriage(Boolean marriage) {
-        this.marriage = marriage;
-    }
-
-    public String getNationality() {
-        return Nationality;
-    }
-
-    public void setNationality(String nationality) {
-        Nationality = nationality;
-    }
-
-    public String getEducation() {
-        return Education;
-    }
-
-    public void setEducation(String education) {
-        Education = education;
-    }
 
 
 }
