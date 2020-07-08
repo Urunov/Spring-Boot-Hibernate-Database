@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Add Person </title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <!-------------Date of Birth------------------->
+
+    <link th:rel="stylesheet" th:href="@{assets/bootstrap-datepicker/css/bootstrap-datepicker.css}"/>
+    <link th:rel="stylesheet" th:href="@{assets/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css}"/>
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{webjars/font-awesome/5.11.2/css/all.css} "/>
+
+
+    <!-----------------------Country---------------->
+
+    <link th:rel="stylesheet" th:href="@{/assets/bootstrap-select/css/bootstrap-select.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/assets/bootstrap-select-country/css/bootstrap-select-country.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/assets/bootstrap-select-country/css/bootstrap4-support.css} "/>
+
+    <!-------------------------------------------->
+</head>
+
+<body>
+<!-- Navigation  MENU Part  -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">Country Population: People add/remove Project v.0.1</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li lass="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" th:href="@{/logout}">Logout </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!----- Menu bar ended.--------->
+
+<div align="center">
+    <h1>Add New Person</h1>
+    <br />
+
+       <form action="#" th:action="@{/save}" th:object="${people}" method="post">
+           <div class="card">
+
+               <div class="card-header">
+                   <strong> Adjust your possibility </strong>
+                   <a th:href="@{/search}" class="btn btn-sm btn-secondary float-right mr-3"> Search </a>
+                   <a th:href="@{/list}" class="btn btn-sm btn-primary float-right mr-3"> List</a>
+               </div>
+
+               <div class="card-body">
+                   <div class="row justify-content-center">
+                       <h5 class="card-title"> Personal Information (Start to ADD)</h5>
+                   </div>
+
+                   <div class="form-group row">
+                       <label for="firstName" class="col-md-2 text-right text-muted">
+                           <strong> First Name: </strong> </label>
+
+                       <div class="col-md-10 " >
+                           <input type="text" class="form-control form-control-sm" id="name"
+                                  name="name" th:field="${people.firstName}"
+                                  placeholder="Enter Name" th:errorclass="is-invalid">
+<!--                           <div th:if="${#fields.hasErrors('firstname')}"-->
+<!--                                class="invalid-feedback" th:errors="*{firstname}"></div>-->
+                       </div>
+                   </div>
+                   <div class="form-group row">
+                       <label for="lastName" class="col-md-2 text-right text-muted">
+                           <strong>  Last Name </strong></label>
+                       <div class="col-md-10">
+                           <input type="text" class="form-control form-control-sm"
+                                  id="lastName" name="lastName" th:field="${people.lastName}"
+                                  placeholder="Enter Last Name" th:errorclass="is-invalid">
+<!--                           <div th:if="${#fields.hasErrors('lastName')}"-->
+<!--                                class="invalid-feedback" th:errors="*{lastName}"></div>-->
+                       </div>
+                   </div>
+               </div>
+           </div>
+         <!---------------Ended Name and Last Name part------------------>
+
+        <!------------------Extra contact information--------------------->
+           <div class="card">
+               <div class="card-header dynamic-update-rows">
+                   Contacts
+
+
+                   <button type="button" name="addContact"
+                           class="btn btn-sm btn-success float-right"
+                           data-dynamic-update-rows-url="/addContact">
+                       <i class="fas fa-plus"></i>
+                   </button>
+               </div>
+
+               <table class="table dynamic-update-rows" style="width: 100%">
+                   <!-- 						<thead> -->
+                   <!-- 							<tr> -->
+                   <!-- 								<th>#</th> -->
+                   <!-- 								<th>Type</th> -->
+                   <!-- 								<th>Contact</th> -->
+                   <!-- 							</tr> -->
+                   <!-- 						</thead> -->
+                   <tbody id="dynamicTableContents">
+                   <tr th:fragment="contacts"
+                       th:each="contact,rowStat : ${people.getAddress()}">
+                       <td th:text="${rowStat.count}">1</td>
+<!--                       <td><input type="hidden"-->
+<!--                                  th:field="${people.contactList[__${rowStat.index}__].id}">-->
+<!--                           <select class="form-control form-control-sm"-->
+<!--                                   th:name="${people.contactList[__${rowStat.index}__].contactType}"-->
+<!--                                   th:field="${people.contactList[__${rowStat.index}__].contactType}"-->
+<!--                                   th:errorclass="is-invalid">-->
+<!--                               <option selected="selected" readonly value="">Select-->
+<!--                                   an option</option>-->
+<!--                               <option value="email">Email</option>-->
+<!--                               <option value="home">Home</option>-->
+<!--                               <option value="business">Business</option>-->
+<!--                               <option value="mobile">Mobile</option>-->
+<!--                           </select>-->
+<!--                           <div-->
+<!--                                   th:if="${#fields.hasErrors('${people.contactList[__${rowStat.index}__].contactType}')}"-->
+<!--                                   class="invalid-feedback"-->
+<!--                                   th:errors="${people.contactList[__${rowStat.index}__].contactType}"></div>-->
+<!--                       </td>-->
+<!--                       <td><input class="form-control form-control-sm"-->
+<!--                                  th:field="${people.contactList[__${rowStat.index}__].contactName}"-->
+<!--                                  th:errorclass="is-invalid" />-->
+<!--                           <div-->
+<!--                                   th:if="${#fields.hasErrors('${people.contactList[__${rowStat.index}__].contactName}')}"-->
+<!--                                   class="invalid-feedback"-->
+<!--                                   th:errors="${people.contactList[__${rowStat.index}__].contactName}"></div>-->
+<!--                       </td>-->
+<!--                       <td>-->
+<!--                           <div class="btn-group">-->
+<!--                               <button type="button" name="removeDynamicRow"-->
+<!--                                       th:value="${rowStat.index}" class="btn btn-sm btn-danger"-->
+<!--                                       data-dynamic-update-rows-url="/removeContact">-->
+<!--                                   <i class="fas fa-trash"></i>-->
+<!--                               </button>-->
+<!--                           </div>-->
+<!--                       </td>-->
+                   </tr>
+                   </tbody>
+               </table>
+
+           </div>
+        <!------------------------->
+
+       </form>
+</div>
+
+
+
+
+
+
+
+
+<!----------------  Date ------------->
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{assets/bootstrap-datepicker/js/bootstrap-datepicker.js}"></script>
+
+<!------------------------------------>
+
+<!-----------------Country ----------->
+    <script th:src="@{/assets/bootstrap-select/js/bootstrap-select.min.js}"></script>
+    <script th:src="@{/assets/bootstrap-select-country/js/bootstrap-select-country.min.js}"></script>
+<!------------------------------------>
+
+<script>
+    $('.input-group.date').datepicker({
+        autoclose: true,
+        todayHighlight: true,
+        format: "mm/dd/yyyy"
+    });
+</script>
+ <script>
+    $('.countrypicker').countrypicker();
+</script>
+
+</body>
+</html>
