@@ -35,6 +35,22 @@
         * Backend implementation for Login Feature
         * Front-end implementation for Login Feature
         * SigIn/Logout and Home Page Implementation
+	
+* Step-4
+        * Front-end implementation for Registration Feature (Thymeleaf template_)
+        * Spring Security Configuration
+        * Backend implementation for Login Feature
+        * Front-end implementation for Login Feature
+        * SigIn/Logout and Home Page Implementation
+
+* Step-5  DynamicField_People
+	
+
+![Population1](https://user-images.githubusercontent.com/11626327/87030904-3f4be500-c21d-11ea-82c0-7f90a54c38c6.JPG)
+![Population2](https://user-images.githubusercontent.com/11626327/87030907-3fe47b80-c21d-11ea-8733-ff60a6deee1c.JPG)
+![Population3](https://user-images.githubusercontent.com/11626327/87030908-3fe47b80-c21d-11ea-8d39-c108dc68cd2a.JPG)
+![Population4](https://user-images.githubusercontent.com/11626327/87030909-407d1200-c21d-11ea-831b-285ecbe57d94.JPG)
+![Population](https://user-images.githubusercontent.com/11626327/87030900-3e1ab800-c21d-11ea-9353-c0d72cddf9e0.JPG)
 
 # License: Spring Boot is Open Source software released 
   * [ Apache 2.0 license ](http://www.apache.org/licenses/LICENSE-2.0.html)
