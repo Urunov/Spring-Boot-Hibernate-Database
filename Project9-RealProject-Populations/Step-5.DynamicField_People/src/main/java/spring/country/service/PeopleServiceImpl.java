@@ -6,6 +6,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import spring.country.model.Contact;
 import spring.country.model.People;
 import spring.country.repository.PeopleDAO;
 
@@ -30,12 +31,17 @@ public class PeopleServiceImpl implements PeopleService{
     }
 
     @Override
-    public void save(People people) {
-        this.peopleDAO.save(people);
+    public People save(People people) {
+      return this.peopleDAO.save(people);
     }
 
     @Override
-    public People getPeopleId(int id) {
+    public void addContact(People people) {
+        people.getContactList().add(new Contact());
+    }
+
+    @Override
+    public People getPeopleId(long id) {
         Optional<People> optional = peopleDAO.findById(id);
         People people = null;
         if(optional.isPresent()) {
@@ -47,10 +53,19 @@ public class PeopleServiceImpl implements PeopleService{
         return people;
     }
 
+    @Override
+    public void deletePeopleById(long id) {
+        this.peopleDAO.deleteById(id);
+    }
 
     @Override
-    public void deletePeopleById(int id) {
-        this.peopleDAO.deleteById(id);
+    public People createPeople() {
+        return new People();
+    }
+
+    @Override
+    public void removeContact(People people, Integer contactIndex) {
+        people.getContactList().remove(contactIndex.intValue());
     }
 
     @Override

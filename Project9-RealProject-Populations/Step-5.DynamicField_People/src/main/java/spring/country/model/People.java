@@ -25,7 +25,7 @@ public class People {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
     @NotNull
     private String firstName;
     @NotNull
@@ -50,17 +50,24 @@ public class People {
     private String education;
 
 
-//    @Valid
-//    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "people_id")
-//    private List<Contact> contactList = new ArrayList<>();
+    @Valid
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_id")
+   private List<Contact> contactList = new ArrayList<>();
 
+    public List<Contact> getContactList() {
+        return contactList;
+    }
 
-    public int getId() {
+    public void setContactList(List<Contact> contactList) {
+        this.contactList = contactList;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -127,20 +134,8 @@ public class People {
     public void setEducation(String education) {
         this.education = education;
     }
-//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//
-////    @JoinTable(
-//            name = "users_roles",
-//            joinColumns = @JoinColumn(
-//                    name = "user_id", referencedColumnName = "id"),
-//            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
-//
-//    private Collection<User> users;
 
     public People() {
     }
-
-
-
 
 }

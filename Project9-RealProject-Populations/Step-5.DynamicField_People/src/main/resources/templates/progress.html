@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Thymeleaf dynamic fields with ajax</title>
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
+<style>
+
+.flexer, .progress-indicator {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex
+}
+
+
+.no-flexer-element {
+	-ms-flex: 0;
+	-webkit-flex: 0;
+	-moz-flex: 0;
+	flex: 0;
+}
+
+.flexer-element, .progress-indicator>li {
+	-ms-flex: 1;
+	-webkit-flex: 1;
+	-moz-flex: 1;
+	flex: 1;
+}
+
+.progress-indicator {
+	margin: 0 0 1em;
+	padding: 0;
+	font-size: 80%;
+	text-transform: uppercase
+}
+
+.progress-indicator>li {
+	list-style: solid;
+	text-align: center;
+	width: auto;
+	padding: 0;
+	margin: 0;
+	position: relative;
+	text-overflow: ellipsis;
+/* 	color: #bbb; */
+	display: block;
+}
+
+.progress-indicator>li .bubble {
+	border-radius: 1000px;
+	width: 20px;
+	height: 20px;
+	background-color: red;
+	display: block;
+	margin: 0 auto .5em;
+	border-bottom: 1px solid #888;
+}
+
+.progress-indicator>li .bubble:after, .progress-indicator>li .bubble:before
+	{
+	display: block;
+	position: absolute;
+	top: 9px;
+	width: 100%;
+	height: 3px;
+	content: '';
+	background-color: red;
+}
+
+.progress-indicator>li.completed .bubble, .progress-indicator>li.completed .bubble:after,
+	.progress-indicator>li.completed .bubble:before {
+	background-color: #00cc00;
+	border-color: black;
+}
+
+.progress-indicator>li .bubble:before {
+	left: 0;
+}
+
+.progress-indicator>li .bubble:after {
+	right: 0;
+}
+
+.progress-indicator>li:first-child .bubble:after, .progress-indicator>li:first-child .bubble:before
+	{
+	width: 50%;
+	margin-left: 50%;
+}
+
+.progress-indicator>li:last-child .bubble:after, .progress-indicator>li:last-child .bubble:before
+	{
+	width: 50%;
+	margin-right: 50%;
+}
+
+
+.progress-indicator>li.active .bubble, .progress-indicator>li.active .bubble:after,
+	.progress-indicator>li.active .bubble:before {
+/* 	background-color: orange; */
+   	background-color: #006699;
+	border-color: black;
+}
+</style>
+</head>
+<body>
+	<div class="container mt-5 mb-5">
+
+		<div class="card">
+			<div class="card-header">Progress Indicators</div>
+			<div class="card-body">
+				<h5 class="card-title">Responsive</h5>
+
+				<ul class="progress-indicator">
+					<li class="completed"><span class="bubble"></span>Step 1</li>
+					<li class="completed"><span class="bubble"></span>Step 2</li>
+					<li class="active"><span class="bubble"></span>Step 3</li>
+					<li class="inactive"><span class="bubble"></span>Step 4</li>
+					<li class="inactive"><span class="bubble"></span>Step 5</li>
+				</ul>
+				<p class="card-text">With supporting text below as a natural
+					lead-in to additional content.</p>
+			</div>
+		</div>
+
+
+
+	</div>
+
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

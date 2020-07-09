@@ -2,7 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet"
+          th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
     <title>Add Person </title>
 
 
@@ -69,6 +75,29 @@
 
 <!----- Menu bar ended.--------->
 
+<div class="card">
+
+    <div class="card-header">
+        <strong> Just using Functions </strong>
+        <a th:href="@{/search}" class="btn btn-sm btn-secondary float-right mr-3"> Search </a>
+
+
+        <a href="/" th:href="@{/add}"     class="btn btn-sm btn-primary float-right mr-3" title="Add Person.">
+            <i class="fas fa-plus"></i> Add Person
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+<!----------------- Search and Adding Engineer------------------->
+
+
+
+<!------------------------------------>
 <div align="center">
     <h1>This region population</h1>
     <br />
@@ -106,7 +135,7 @@
                     Education</a>
             </th>
             <th> Change Values</th>
-            <th> Admin</th>
+<!--            <th> Admin</th>-->
 
 
         </tr>
@@ -184,5 +213,11 @@
     $('.countrypicker').countrypicker();
 </script>
 
+    <script type="text/javascript"
+            th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script type="text/javascript"
+            th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/scripts.js}"></script>
 </body>
 </html>

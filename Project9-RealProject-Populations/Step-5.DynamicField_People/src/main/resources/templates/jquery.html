@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Thymeleaf dynamic fields with ajax</title>
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
+<body>
+	<div class="container">
+		<form>
+			<input type="text" id="name" placeholder="Name"> <input
+				type="text" id="email" placeholder="Email Address"> <input
+				type="button" class="add-row" value="Add Row">
+		</form>
+		<br /> <br /> <br />
+		<table class="table table-hover table-responsive" style="width: 100%;">
+			<thead>
+				<tr>
+					<th>Select</th>
+					<th>Name</th>
+					<th>Email</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			<tfoot>
+				<tr>
+					<th>Select</th>
+					<th>Name</th>
+					<th>Email</th>
+				</tr>
+			</tfoot>
+		</table>
+		<button type="button" class="delete-row">Delete Row</button>
+	</div>
+
+	<br />
+	<br />
+	<br />
+
+
+	<div class="container">
+		<form>
+			<input type="text" id="name2" name="name2" placeholder="Name">
+			<input type="text" id="email2" name="email2"
+				placeholder="Email Address"> <select name="single">
+				<option>Single</option>
+				<option>Single2</option>
+			</select> <br> <select name="multiple" multiple="multiple">
+				<option selected="selected">Multiple</option>
+				<option>Multiple2</option>
+				<option selected="selected">Multiple3</option>
+			</select> <br> <input type="checkbox" name="check" value="check1"
+				id="ch1"> <label for="ch1">check1</label> <input
+				type="checkbox" name="check" value="check2" checked="checked"
+				id="ch2"> <label for="ch2">check2</label> <br> <input
+				type="radio" name="radio" value="radio1" checked="checked" id="r1">
+			<label for="r1">radio1</label> <input type="radio" name="radio"
+				value="radio2" id="r2"> <label for="r2">radio2</label>
+		</form>
+
+		<button>Serialize form values</button>
+
+		<p>
+			<tt id="results"></tt>
+		</p>
+	</div>
+
+
+	<div class="container">
+		<form id="register_form" action="https://url.com/users/register"
+			method="post">
+			<input type="text" placeholder="Name" name="name"
+				title="Up to 20 alphabetical characters"> <input type="text"
+				placeholder="Email" name="email"
+				title="Must be a valid email address"> <input
+				type="password" placeholder="Password" name="password"
+				title="Must be 8 or more characters long and contain at least one number and one uppercase letter">
+			<input type="text" placeholder="Homeadress" name="homeadress">
+			<input type="text" placeholder="Postnumber" name="postnumber">
+			<input type="text" placeholder="City" name="city"> <select
+				name="single">
+				<option>Single</option>
+				<option>Single2</option>
+			</select> <br> <select name="multiple[]" multiple="multiple">
+				<option selected="selected">Multiple</option>
+				<option>Multiple2</option>
+				<option selected="selected">Multiple3</option>
+			</select> <br> <input type="checkbox" name="check" value="check1"
+				id="ch1"> <label for="ch1">check1</label> <input
+				type="checkbox" name="check" value="check2" checked="checked"
+				id="ch2"> <label for="ch2">check2</label> <br> <input
+				type="radio" name="radio" value="radio1" checked="checked" id="r1">
+			<label for="r1">radio1</label> <input type="radio" name="radio"
+				value="radio2" id="r2"> <label for="r2">radio2</label> <br>
+			<button value="Submit" type="submit">Register</button>
+		</form>
+	</div>
+	<br />
+	<br />
+	<br />
+
+	<div class="container">
+		<form id="order" method="post" action="./">
+			<input name="input1" type="text" value="Hello World" /> <input
+				name="input2" type="text" value="World" /> <select name="product"
+				size="5" multiple="multiple">
+				<option value="DrpDownValue1" selected="selected">1</option>
+				<option value="DrpDownValue2">2</option>
+				<option value="DrpDownValue3" selected="selected">3</option>
+				<option value="DrpDownValue4" selected="selected">4</option>
+				<option value="DrpDownValue5" selected="selected">5</option>
+			</select> <input type="submit" value="submit" />
+		</form>
+	</div>
+
+	<br />
+	<br />
+	<br />
+
+	<form action="#" method="post">
+    <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" />
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" />
+    </div>
+    <input name="input1" type="text" value="Hello World" /> <input
+				name="input2" type="text" value="World" /> <select name="product"
+				size="5" multiple="multiple">
+				<option value="DrpDownValue1" selected="selected">1</option>
+				<option value="DrpDownValue2">2</option>
+				<option value="DrpDownValue3" selected="selected">3</option>
+				<option value="DrpDownValue4" selected="selected">4</option>
+				<option value="DrpDownValue5" selected="selected">5</option>
+				
+				<input type="checkbox" name="check" value="check1"
+				id="ch1"> <label for="ch1">check1</label> <input
+				type="checkbox" name="check" value="check2" checked="checked"
+				id="ch2"> <label for="ch2">check2</label> <br> <input
+				type="radio" name="radio" value="radio1" checked="checked" id="r1">
+			<label for="r1">radio1</label> <input type="radio" name="radio"
+				value="radio2" id="r2"> <label for="r2">radio2</label> <br>
+    <p>
+        <input type="submit" value="Send" />
+    </p>
+</form>
+
+
+	<br />
+	<br />
+	<br />
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery-validation/jquery.validate.min.js}"></script>
+	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/scripts.js}"></script>
+	<script>
+    $(document).ready(function(){
+        $(".add-row").click(function(){
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + name + "</td><td>" + email + "</td></tr>";
+            $("table tbody").append(markup);
+        });
+        
+        // Find and remove selected table rows
+        $(".delete-row").click(function(){
+            $("table tbody").find('input[name="record"]').each(function(){
+                if($(this).is(":checked")){
+                    $(this).parents("tr").remove();
+                }
+            });
+        });
+        
+        $.ajax({
+            url: 'users.php',
+            dataType: 'json',
+            type: 'post',
+            contentType: 'application/json',
+            data: JSON.stringify( { "first-name": $('#first-name').val(), "last-name": $('#last-name').val() } ),
+            processData: false,
+            success: function( data, textStatus, jQxhr ){
+                $('#response pre').html( JSON.stringify( data ) );
+            },
+            error: function( jqXhr, textStatus, errorThrown ){
+                console.log( errorThrown );
+            }
+        });
+    });    
+</script>
+
+
+	<script>
+  function showValues() {
+    var str = $( "form" ).serialize();
+    $( "#results" ).text( str );
+  }
+  $( "input[type='checkbox'], input[type='radio']" ).on( "click", showValues );
+  $( "select" ).on( "change", showValues );
+  showValues();
+</script>
+
+	<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    var x = $("form").serializeArray();
+    $.each(x, function(i, field){
+      $("#results").append(field.name + ":" + field.value + " ");
+    });
+  });
+});
+</script>
+
+
+	<script>
+		const serialize_form = form => JSON.stringify(
+		  Array.from(new FormData(form).entries())
+		       .reduce((m, [ key, value ]) => Object.assign(m, { [key]: value }), {})
+		);
+
+		$('#register_form').on('submit', function(event) {
+		  event.preventDefault();
+		  const json = serialize_form(this);
+		  console.log(json);
+		  alert(json);
+		  
+		  
+		  /*$.ajax({
+		    type: 'POST',
+		    url: 'https://url.com/users/register',
+		    dataType: 'json',
+		    data: json,
+		    contentType: 'application/json',
+		    success: function(data) {
+		      alert(data)
+		    }
+		  });*/
+		});
+
+</script>
+
+
+	<script>
+
+$(document).ready(function() {
+	
+    $('#order').submit(function() {
+        var ser = $("[name]").not("select").serialize();
+        $("select", this).each(function(i, select) {
+            var s = "";
+            $("option:selected", select).each(function() {
+                s += (s.length>0?",":"") + $(this).val();
+            });
+            ser += (ser.length>0?"&":"") + $(select).attr("name") + "=" + s; 
+        });
+        
+        var json = JSON.stringify($('#order').serializeArray());
+        console.log(json);
+		  alert(json);
+        alert(ser);
+        return false;
+    });
+});
+
+</script>
+
+<script>
+
+(function ($) {
+    $.fn.serializeFormJSON = function () {
+
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function () {
+            if (o[this.name]) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
+})(jQuery);
+
+$('form').submit(function (e) {
+    e.preventDefault();
+    var data = $(this).serializeFormJSON();
+    console.log(data);
+    
+    var json = JSON.stringify(data);
+    console.log(json);
+	  alert(json);
+    
+    
+    /* Object
+        email: "value"
+        name: "value"
+        password: "value"
+     */
+});
+
+
+</script>
+
+
+</body>
+</html>

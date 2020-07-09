@@ -14,11 +14,17 @@ public interface PeopleService{
 
     List<People> getAllPeople();
 
-    void save(People people);
+    People save(People people);
 
-    People getPeopleId(int id);
+    void addContact(People people);
 
-    void deletePeopleById(int id);
+    People getPeopleId(long id);
+
+    void deletePeopleById(long id);
+
+    People createPeople();
+
+    void removeContact(People people, Integer contactIndex);
 
     Page<People> findPaginated(int pageNo, int pageSize, String sortField, String sortDierection);
 }

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Thymeleaf dynamic fields with ajax</title>
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
+<style>
+.rounded-nav {
+	border-radius: 50rem !important;
+}
+
+.rounded-nav .nav-link.active {
+	background: #006699;
+	border-radius: 50rem !important;
+}
+
+/* With arrow tabs */
+.with-arrow .nav-link.active {
+	background: #006699;
+	position: relative;
+}
+
+.with-arrow .nav-link.active::after {
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #006699;
+	position: absolute;
+	bottom: -6px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: block;
+}
+
+/* lined tabs */
+.lined .nav-link {
+	border: none;
+	border-bottom: 3px solid transparent;
+}
+
+.lined .nav-link:hover {
+	border: none;
+	border-bottom: 3px solid transparent;
+}
+
+.lined .nav-link.active {
+	background: none;
+	color: #555;
+	border-color: #006699;
+}
+
+.tab-pane.fade {
+	transition: all 0.3s;
+	transform: translateY(0rem);
+}
+
+.tab-pane.fade.show {
+	transform: translateY(0rem);
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<!-- For demo purpose -->
+		<div class="row mb-5">
+			<div class="col-lg-8 text-center mx-auto">
+				<h4 class="display-6">Bootstrap 4 tabs</h4>
+				<!-- 					<p class="lead mb-0">Build a few custom styled tab variants -->
+				<!-- 						using Bootstrap 4.</p> -->
+			</div>
+		</div>
+		<!-- End -->
+
+
+		<div class="p-5 bg-white rounded shadow mb-5">
+			<!-- Rounded tabs -->
+			<ul id="myTab" role="tablist"
+				class="nav nav-tabs nav-pills flex-column flex-sm-row text-center bg-light border-0 rounded-nav">
+				<li class="nav-item flex-sm-fill"><a id="home-tab"
+					data-toggle="tab" href="#home" role="tab" aria-controls="home"
+					aria-selected="true"
+					class="nav-link border-0 text-uppercase font-weight-bold active">Home</a>
+				</li>
+				<li class="nav-item flex-sm-fill"><a id="profile-tab"
+					data-toggle="tab" href="#profile" role="tab"
+					aria-controls="profile" aria-selected="false"
+					class="nav-link border-0 text-uppercase font-weight-bold">Profile</a>
+				</li>
+				<li class="nav-item flex-sm-fill"><a id="contact-tab"
+					data-toggle="tab" href="#contact" role="tab"
+					aria-controls="contact" aria-selected="false"
+					class="nav-link border-0 text-uppercase font-weight-bold">Contact</a>
+				</li>
+			</ul>
+			<div id="myTabContent" class="tab-content">
+				<div id="home" role="tabpanel" aria-labelledby="home-tab"
+					class="tab-pane fade px-3 py-3 show active">
+					<p class="text-muted">Sed do eiusmod tempor incididunt ut
+						labore et dolore magna aliqua.</p>
+					<p class="text-muted mb-0">Lorem ipsum dolor sit amet,
+						consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+						labore et dolore magna aliqua.</p>
+				</div>
+				<div id="profile" role="tabpanel" aria-labelledby="profile-tab"
+					class="tab-pane fade px-3 py-3">
+					<p class="text-muted">Consectetur adipisicing elit, sed do
+						eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					<p class="text-muted mb-0">Lorem ipsum dolor sit amet,
+						consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+						labore et dolore magna aliqua.</p>
+				</div>
+				<div id="contact" role="tabpanel" aria-labelledby="contact-tab"
+					class="tab-pane fade px-3 py-3">
+					<p class="text-muted">Lorem ipsum dolor sit amet, consectetur
+						adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+						dolore magna aliqua. Ut enim ad minim veniam.</p>
+					<p class="text-muted">Lorem ipsum dolor sit amet, consectetur
+						adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+						dolore magna aliqua.</p>
+				</div>
+			</div>
+			<!-- End rounded tabs -->
+		</div>
+
+
+		<div class="p-5 bg-white rounded shadow mb-5">
+			<!-- Bordered tabs-->
+			<ul id="myTab1" role="tablist"
+				class="nav nav-tabs nav-pills with-arrow flex-column flex-sm-row text-center">
+				<li class="nav-item flex-sm-fill"><a id="home1-tab"
+					data-toggle="tab" href="#home1" role="tab" aria-controls="home1"
+					aria-selected="true"
+					class="nav-link text-uppercase font-weight-bold mr-sm-3 rounded-0 border active">Home</a>
+				</li>
+				<li class="nav-item flex-sm-fill"><a id="profile1-tab"
+					data-toggle="tab" href="#profile1" role="tab"
+					aria-controls="profile1" aria-selected="false"
+					class="nav-link text-uppercase font-weight-bold mr-sm-3 rounded-0 border">Profile</a>
+				</li>
+				<li class="nav-item flex-sm-fill"><a id="contact1-tab"
+					data-toggle="tab" href="#contact1" role="tab"
+					aria-controls="contact1" aria-selected="false"
+					class="nav-link text-uppercase font-weight-bold rounded-0 border">Contact</a>
+				</li>
+			</ul>
+			<div id="myTab1Content" class="tab-content">
+				<div id="home1" role="tabpanel" aria-labelledby="home-tab"
+					class="tab-pane fade px-3 py-3 show active">
+					<p class="leade">Lorem ipsum dolor sit amet, consectetur
+						adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+						dolore magna aliqua. Ut enim ad minim veniam.</p>
+					<p class="leade mb-0">Duis aute irure dolor in reprehenderit in
+						voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						Excepteur sint occaecat cupidatat non proident.</p>
+				</div>
+				<div id="profile1" role="tabpanel" aria-labelledby="profile-tab"
+					class="tab-pane fade px-3 py-3">
+					<p class="leade">Lorem ipsum dolor sit amet, consectetur
+						adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+						dolore magna aliqua. Ut enim ad minim veniam.</p>
+					<p class="leade mb-0">Duis aute irure dolor in reprehenderit in
+						voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						Excepteur sint occaecat cupidatat non proident.</p>
+				</div>
+				<div id="contact1" role="tabpanel" aria-labelledby="contact-tab"
+					class="tab-pane fade px-3 py-3">
+					<p class="leade">Lorem ipsum dolor sit amet, consectetur
+						adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+						dolore magna aliqua. Ut enim ad minim veniam.</p>
+					<p class="leade mb-0">Duis aute irure dolor in reprehenderit in
+						voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						Excepteur sint occaecat cupidatat non proident.</p>
+				</div>
+			</div>
+			<!-- End bordered tabs -->
+		</div>
+
+
+		<div class="p-5 bg-white rounded shadow mb-5">
+			<!-- Lined tabs-->
+			<ul id="myTab2" role="tablist"
+				class="nav nav-tabs nav-pills with-arrow lined flex-column flex-sm-row text-center">
+				<li class="nav-item flex-sm-fill"><a id="home2-tab"
+					data-toggle="tab" href="#home2" role="tab" aria-controls="home2"
+					aria-selected="true"
+					class="nav-link text-uppercase font-weight-bold mr-sm-3 rounded-0 active">Home</a>
+				</li>
+				<li class="nav-item flex-sm-fill"><a id="profile2-tab"
+					data-toggle="tab" href="#profile2" role="tab"
+					aria-controls="profile2" aria-selected="false"
+					class="nav-link text-uppercase font-weight-bold mr-sm-3 rounded-0">Profile</a>
+				</li>
+				<li class="nav-item flex-sm-fill"><a id="contact2-tab"
+					data-toggle="tab" href="#contact2" role="tab"
+					aria-controls="contact2" aria-selected="false"
+					class="nav-link text-uppercase font-weight-bold rounded-0">Contact</a>
+				</li>
+			</ul>
+			<div id="myTab2Content" class="tab-content">
+				<div id="home2" role="tabpanel" aria-labelledby="home-tab"
+					class="tab-pane fade px-3 py-3 show active">
+					<p class="leade">Lorem ipsum dolor sit amet, consectetur
+						adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+						dolore magna aliqua. Ut enim ad minim veniam.</p>
+					<p class="leade mb-0">Duis aute irure dolor in reprehenderit in
+						voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						Excepteur sint occaecat cupidatat non proident.</p>
+				</div>
+				<div id="profile2" role="tabpanel" aria-labelledby="profile-tab"
+					class="tab-pane fade px-3 py-3">
+					<p class="leade">Lorem ipsum dolor sit amet, consectetur
+						adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+						dolore magna aliqua. Ut enim ad minim veniam.</p>
+					<p class="leade mb-0">Duis aute irure dolor in reprehenderit in
+						voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						Excepteur sint occaecat cupidatat non proident.</p>
+				</div>
+				<div id="contact2" role="tabpanel" aria-labelledby="contact-tab"
+					class="tab-pane fade px-3 py-3">
+					<p class="leade">Lorem ipsum dolor sit amet, consectetur
+						adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+						dolore magna aliqua. Ut enim ad minim veniam.</p>
+					<p class="leade mb-0">Duis aute irure dolor in reprehenderit in
+						voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						Excepteur sint occaecat cupidatat non proident.</p>
+				</div>
+			</div>
+			<!-- End lined tabs -->
+		</div>
+
+	</div>
+
+
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/scripts.js}"></script>
+
+</body>
+</html>

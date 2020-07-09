@@ -12,9 +12,11 @@ import java.util.List;
  * @Author Hamdamboy
  */
 
-public interface PeopleDAO extends JpaRepository<People, Integer> {
+public interface PeopleDAO extends JpaRepository<People, Long> {
 
 
     @Query("SELECT p FROM People p WHERE CONCAT(p.firstName, ' ', p.birthdate, ' ', p.lastName, ' ', p.education, ' ', p.address, ' ', p.marriage) LIKE %?1%")
     List<People> search(String keyword);
+
+    List<People> findByFirstNameIgnoreCaseContaining(String firstName);
 }
