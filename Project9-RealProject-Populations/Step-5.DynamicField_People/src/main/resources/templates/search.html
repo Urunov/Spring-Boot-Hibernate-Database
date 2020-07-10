@@ -2,24 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml" >
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Thymeleaf dynamic fields with ajax</title>
-    <link rel="stylesheet"
-          th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
-    <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
-    <style>
-
-        /* table { */
-        /* 	height: 10px !important; */
-        /* 	font-size: 12px; */
-        /* } */
-        .table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td{
-            padding: 5px;
-        }
-
-    </style>
+    <meta charset="utf-8" />
     <title>Add Person </title>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
@@ -40,22 +23,6 @@
     <link th:rel="stylesheet" th:href="@{/assets/bootstrap-select-country/css/bootstrap4-support.css} "/>
 
     <!-------------------------->
-
-    <link rel="stylesheet"
-          th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
-    <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
-    <style>
-
-        /* table { */
-        /* 	height: 10px !important; */
-        /* 	font-size: 12px; */
-        /* } */
-        .table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td{
-            padding: 5px;
-        }
-
-    </style>
-    <!------------------------------>
 </head>
 
 <body>
@@ -78,13 +45,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">About</a>
+                    <a class="nav-link" href="/about">About</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="/contact">Contact</a>
                 </li>
                 <li lass="nav-item" sec:authorize="isAuthenticated()">
                     <a class="nav-link" th:href="@{/logout}">Logout </a>
@@ -94,184 +61,82 @@
     </div>
 </nav>
 
-<!--&lt;!&ndash;-&#45;&#45; Menu bar ended.-&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+<!----- Menu bar ended.--------->
 
-<!--<div align="center">-->
-<!--    <h1>This region population</h1>-->
-<!--    <br />-->
+<div align="center">
+    <h1>This region population</h1>
+    <br />
 
-<!--    <br/>-->
-
-
-<!--    <form th:action="@{/search}">-->
-<!--        <strong> Filter: </strong>-->
-<!--        <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />-->
-<!--        &nbsp;-->
-<!--        <input type="submit" value="Search" />-->
-<!--        &nbsp;-->
-<!--        <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />-->
-<!--    </form>-->
-<!--        <br />-->
-<!--        <br />-->
-<!--    <table border="1" cellpadding="10">-->
-<!--        <thead>-->
-<!--        <tr>-->
-<!--            <th>ID</th>-->
-<!--            <th>Name</th>-->
-<!--            <th>Family Name</th>-->
-<!--            <th>Birthday</th>-->
-<!--            <th>Address</th>-->
-<!--            <th>Marriage</th>-->
-<!--            <th>Nationality</th>-->
-<!--            <th>Education</th>-->
-<!--            <th>Change Values</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tr th:each="peopleagain : ${peopleList}">-->
-
-<!--            <td th:text="${peopleagain.id}">ID</td>-->
-<!--            <td th:text="${peopleagain.firstName}"> Name</td>-->
-<!--            <td th:text="${peopleagain.lastName}">Family Name</td>-->
-<!--            <td th:text="${peopleagain.birthdate}">Age</td>-->
-<!--            <td th:text="${peopleagain.address}">Address</td>-->
-<!--            <td th:text="${peopleagain.marriage}">Marriage</td>-->
-<!--            <td th:text="${peopleagain.nationality}">Nationality</td>-->
-<!--            <td th:text="${peopleagain.education}">Eduction</td>-->
+    <br/>
 
 
-<!--        <td>-->
-<!--            <a th:href="@{'/edit/' + ${peopleagain.id}}">Edit</a>-->
-<!--            &nbsp;&nbsp;&nbsp;-->
-<!--            <a th:href="@{'/delete/' + ${peopleagain.id}}">Delete</a>-->
-<!--        </td>-->
+    <form th:action="@{/search}">
+        <strong> Filter: </strong>
+        <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+        &nbsp;
+        <input type="submit" value="Search" />
+        &nbsp;
+        <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+    </form>
+    <br />
+    <br />
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Family Name</th>
+            <th>Birthday</th>
+            <th>Address</th>
+            <th>Marriage</th>
+            <th>Nationality</th>
+            <th>Education</th>
+            <th>Change Values</th>
+        </tr>
+        </thead>
+        <tr th:each="peopleagain : ${peopleList}">
 
+            <td th:text="${peopleagain.id}">ID</td>
+            <td th:text="${peopleagain.firstName}"> Name</td>
+            <td th:text="${peopleagain.lastName}">Family Name</td>
+            <td th:text="${peopleagain.birthdate}">Age</td>
+            <td th:text="${peopleagain.address}">Address</td>
+            <td th:text="${peopleagain.marriage}">Marriage</td>
+            <td th:text="${peopleagain.nationality}">Nationality</td>
+            <td th:text="${peopleagain.education}">Eduction</td>
 
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--    </table>-->
-<!--</div>-->
-
-
-        <!--------------------------------------->
-
-<div class="container">
-
-
-    <div class="card">
-        <div class="card-header">
-           Just using Functions <a th:href="@{/list}"
-                                                  class="btn btn-sm btn-primary float-right">List</a>
-        </div>
-        <div class="card-body">
-            <div class="row justify-content-center">
-                <h5 class="card-title">Population in the looking for</h5>
-            </div>
-
-            <div class="card-body">
-                <form>
-						<span class="subtitle">Search Persons based on FirstName
-							(Enter Few Chars of FirstName)</span>
-                    <div class="input-group mb-3">
-                        <input class="form-control form-control-sm col-md-6" type="text"
-                               id="searchSurname" name="searchSurname" />
-                        <div class="input-group-append">
-                            <button id="searchButton" name="searchButton"
-                                    onclick="getPeople()" type="button"><i class="fas fa-search"></i> Search</button>
-                        </div>
-                    </div>
-                    <hr />
-                    <br />
-                    <!-- Results block -->
-                    <div id="resultsBlock"></div>
-                </form>
-                <br />
-
-
-                <div th:fragment="resultsList"
-                     th:unless="${#lists.isEmpty(peopleList)}" class="results-block">
-                    <table
-                            class="table table-condensed table-condensed-sm table-bordered">
-                        <thead>
-                        <tr>
-                            <th>Person-Id</th>
-                            <th>FirstName</th>
-                            <th>LastName</th>
-                            <th>Contacts</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="person : ${people}">
-                            <td th:text="${person.id}">id</td>
-                            <td th:text="${person.firstName}">id</td>
-                            <td th:text="${person.firstName">id</td>
-                            <td>
-                                <table
-                                        class="table table-condensed table-condensed-sm table-bordered">
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Seq#</th>
-                                        <th>Contact Type</th>
-                                        <th>Contact Name</th>
-                                    </tr>
-                                    <tr th:each="contact : ${person.contactList}">
-                                        <td th:text="${contact.id}">id</td>
-                                        <td th:text="${contact.sequenceNumber}">SequenceNumber</td>
-                                        <td th:text="${contact.contactType}">type</td>
-                                        <td th:text="${contact.contactName}">name</td>
-                                        <!--<p th:text="|${contact.id}  ${contact.contactType} ${contact.contactName} |">details/p> -->
-                                </table>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+            <td>
+                <a th:href="@{'/edit/' + ${peopleagain.id}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${peopleagain.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
-        <!--------------------------------------->
 
+<!----------------  Date ------------->
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{assets/bootstrap-datepicker/js/bootstrap-datepicker.js}"></script>
 
-
-    <!----------------  Date ------------->
-    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-    <script th:src="@{assets/bootstrap-datepicker/js/bootstrap-datepicker.js}"></script>
-
-    <!------------------------------------>
-    <!-----------------Country ----------->
-    <script th:src="@{/assets/bootstrap-select/js/bootstrap-select.min.js}"></script>
-    <script th:src="@{/assets/bootstrap-select-country/js/bootstrap-select-country.min.js}"></script>
-    <!------------------------------------>
+<!------------------------------------>
+<!-----------------Country ----------->
+<script th:src="@{/assets/bootstrap-select/js/bootstrap-select.min.js}"></script>
+<script th:src="@{/assets/bootstrap-select-country/js/bootstrap-select-country.min.js}"></script>
+<!------------------------------------>
 
 <script type="text/javascript">
-        $('.input-group.date').datepicker({
-            autoclose: true,
-            todayHighlight: true,
-            format: "mm/dd/yyyy"
-        });
-        $('.countrypicker').countrypicker();
+    $('.input-group.date').datepicker({
+        autoclose: true,
+        todayHighlight: true,
+        format: "mm/dd/yyyy"
+    });
+    $('.countrypicker').countrypicker();
 
-        function clearSearch() {
-            window.location = "[[@{/}]]";
-        }
-</script>
-
-<script type="text/javascript"
-        th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
-<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-<script type="text/javascript"
-        th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/scripts.js}"></script>
-<script>
-    function getPeople() {
-        var url = '/persons';
-
-        //     if ($('#searchFirstname').val() != '') {
-        url = url + '/' + $('#searchSurname').val();
-        //     }
-
-        $("#resultsBlock").load(url);
+    function clearSearch() {
+        window.location = "[[@{/}]]";
     }
 </script>
 </body>

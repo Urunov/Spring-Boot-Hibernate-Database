@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Part3-SpringBoot-API-JPA-DB-CountrySelction-GOV.iml" filepath="$PROJECT_DIR$/.idea/Part3-SpringBoot-API-JPA-DB-CountrySelction-GOV.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/main/java/spring/country/country.iml" filepath="$PROJECT_DIR$/src/main/java/spring/country/country.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/main/java/spring/spring.iml" filepath="$PROJECT_DIR$/src/main/java/spring/spring.iml" />
+    </modules>
+  </component>
+</project>

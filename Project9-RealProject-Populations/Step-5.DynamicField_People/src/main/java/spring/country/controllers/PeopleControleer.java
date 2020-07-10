@@ -109,13 +109,6 @@ public class PeopleControleer {
 
     }
 
-//    @RequestMapping(value = { "list" }, method = RequestMethod.GET)
-//    public String listUsers(ModelMap model) {
-//        List<People> peopleList = peopleService.getAllPeople();
-//        model.addAttribute("peopleList", peopleList);
-//        model.addAttribute("metaTitle", "All Users");
-//        return "list_people";
-//    }
 
     @PostMapping("/addContact")
     public String addContact(People person) {
@@ -131,9 +124,6 @@ public class PeopleControleer {
         peopleService.removeContact(people, contactIndex);
         return "index :: contacts"; // returning the updated section
     }
-
-
-
 
     @GetMapping("/edit/{id}")
     public ModelAndView showEditForm(@PathVariable (name = "id") int id){
@@ -162,19 +152,6 @@ public class PeopleControleer {
         peopleService.deletePeopleById(id);
         return "redirect:/";
     }
-
-//    @GetMapping("/search")
-//    public String searchPeople(Model model, @Param("keyword") String keyword) {
-//
-//        //List<People> peopleList = peopleDAO.findAll();
-//        List<People> peopleList = peopleService.getAllPeople();
-//        model.addAttribute("peopleList", peopleList);
-//        model.addAttribute("keyword", keyword);
-//
-//        return "search";
-//    }
-
-
 
 
     @GetMapping("/page/{pageNo}")
@@ -222,10 +199,16 @@ public class PeopleControleer {
 
 
     @GetMapping("/search")
-    public String search(Model model) {
+    public String searchPeople(Model model, @Param("keyword") String keyword) {
+
+        //List<People> peopleList = peopleDAO.findAll();
+        List<People> peopleList = peopleService.getAllPeople();
+        model.addAttribute("peopleList", peopleList);
+        model.addAttribute("keyword", keyword);
 
         return "search";
     }
+
 
     @RequestMapping(value = "/persons/{firstName}", method = RequestMethod.GET)
     public String showGuestList(Model model, @PathVariable("firstName") String firstName) {
@@ -234,6 +217,14 @@ public class PeopleControleer {
         return "search :: search";
     }
 
+    @GetMapping("/about")
+    public String aboutCom(){
+        return "about";
+    }
 
+    @GetMapping("/contact")
+    public String ContactUs(){
+        return "contact";
+    }
 }
 
