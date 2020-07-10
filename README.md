@@ -53,7 +53,11 @@ More valuable information also here ([let's go](https://dev.to/urunov/how-to-han
      * Sorting/Paginatation
      * Converting
      * Admin/User Controleres
-     
+ 
+ 
+ 
+ ![Population_Final3](https://user-images.githubusercontent.com/11626327/87119886-2e9d7c80-c2ba-11ea-9357-184f2454daf1.JPG)
+ 
 ## Core data for Spring Boot with Database [details....](https://dev.to/urunov/how-to-handle-database-in-spring-boot-560)
 
 This provides Database implementation in the Spring Boot. Indeed, We should breifly inform here concept of Spring, Spring Boot, JDBC, JPA, H2.
