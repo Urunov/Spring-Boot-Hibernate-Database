@@ -52,5 +52,16 @@
 ![Population4](https://user-images.githubusercontent.com/11626327/87030909-407d1200-c21d-11ea-831b-285ecbe57d94.JPG)
 ![Population](https://user-images.githubusercontent.com/11626327/87030900-3e1ab800-c21d-11ea-9353-c0d72cddf9e0.JPG)
 
+
+Step-6. Population Final
+          *  Simpe Form CRUD people
+	  *  Searching
+	  *  Database dynamic control
+
+![Population_Final1](https://user-images.githubusercontent.com/11626327/87119883-2cd3b900-c2ba-11ea-9770-a31923ce5b47.JPG)
+![Population_Final2](https://user-images.githubusercontent.com/11626327/87119885-2e04e600-c2ba-11ea-9aef-072d26606045.JPG)
+![Population_Final4](https://user-images.githubusercontent.com/11626327/87119887-2e9d7c80-c2ba-11ea-8e83-010b7bda366c.JPG)
+![Population_Final5](https://user-images.githubusercontent.com/11626327/87119889-2f361300-c2ba-11ea-8440-366c0ef67e7f.JPG)
+![Population_Final6](https://user-images.githubusercontent.com/11626327/87119892-2f361300-c2ba-11ea-8473-db681e6656db.JPG)
 # License: Spring Boot is Open Source software released 
   * [ Apache 2.0 license ](http://www.apache.org/licenses/LICENSE-2.0.html)
