@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Population</title>
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
+
+
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
+		  integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+	<link th:rel="stylesheet" th:href="@{assets/bootstrap-datepicker/css/bootstrap-datepicker.css}"/>
+	<link th:rel="stylesheet" th:href="@{assets/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css}"/>
+	<link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+	<link th:rel="stylesheet" th:href="@{webjars/font-awesome/5.11.2/css/all.css} "/>
+
+</head>
+<body>
+
+<!-- Navigation  MENU Part  -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+	<div class="container">
+		<a class="navbar-brand" href="/">Country Population:  People adding/removing Project v.1 </a>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="/">Home
+						<span class="sr-only">(current)</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/about">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Services</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/contact">Contact</a>
+				</li>
+			</ul>
+		</div>
+
+
+	</div>
+</nav>
+
+<!----- Menu bar ended.--------->
+
+
+	<div class="container">
+		<!-- 		<div class="container shadow mt-5 bg-lightpy-5"></div> -->
+		<form method="post" th:action="@{/}" th:object="${person}"
+			name="personContactForm" id="personContactForm" class="mb-3">
+			<input type="hidden" th:field="${person.id}">
+
+
+			<div class="card">
+
+				<div class="card-header">
+					Functional possibility <a th:href="@{/search}"
+						class="btn btn-sm btn-secondary float-right mr-3">Search</a><a
+						th:href="@{/list}" class="btn btn-sm btn-primary float-right mr-3">List</a>
+				</div>
+				<div class="card-body">
+					<div class="row justify-content-center">
+						<h5 class="card-title">Personal Information</h5>
+					</div>
+					<div class="form-group row">
+						<label for="firstName" class="col-md-2 text-right text-muted">First
+							Name</label>
+						<div class="col-md-10">
+							<input type="text" class="form-control form-control-sm" id="name"
+								name="name" th:field="${person.firstname}"
+								placeholder="First Name" th:errorclass="is-invalid">
+							<div th:if="${#fields.hasErrors('firstname')}"
+								class="invalid-feedback" th:errors="*{firstname}"></div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="lastName" class="col-md-2 text-right text-muted">Last
+							Name</label>
+						<div class="col-md-10">
+							<input type="text" class="form-control form-control-sm"
+								id="lastName" name="lastName" th:field="${person.lastName}"
+								placeholder="Last Name" th:errorclass="is-invalid">
+							<div th:if="${#fields.hasErrors('lastName')}"
+								class="invalid-feedback" th:errors="*{lastName}"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-header dynamic-update-rows">
+					Contacts
+
+					<button type="button" name="addContact"
+						class="btn btn-sm btn-success float-right"
+						data-dynamic-update-rows-url="/addContact">
+						<i class="fas fa-plus"></i>
+					</button>
+
+				</div>
+				<div class="card-body">
+
+					<table class="table dynamic-update-rows" style="width: 100%">
+						<!-- 						<thead> -->
+						<!-- 							<tr> -->
+						<!-- 								<th>#</th> -->
+						<!-- 								<th>Type</th> -->
+						<!-- 								<th>Contact</th> -->
+						<!-- 							</tr> -->
+						<!-- 						</thead> -->
+						<tbody id="dynamicTableContents">
+							<tr th:fragment="contacts"
+								th:each="contact,rowStat : ${person.contactList}">
+								<td th:text="${rowStat.count}">1</td>
+								<td><input type="hidden"
+									th:field="${person.contactList[__${rowStat.index}__].id}">
+									<select class="form-control form-control-sm"
+									th:name="${person.contactList[__${rowStat.index}__].contactType}"
+									th:field="${person.contactList[__${rowStat.index}__].contactType}"
+									th:errorclass="is-invalid">
+										<option selected="selected" readonly value="">Select an option</option>
+										<option value="email">Email</option>
+										<option value="home">Home</option>
+										<option value="business">Business</option>
+										<option value="mobile">Mobile</option>
+										<option value="education">Education</option>
+										<option value="nationality">Nationality</option>
+								</select>
+									<div
+										th:if="${#fields.hasErrors('${person.contactList[__${rowStat.index}__].contactType}')}"
+										class="invalid-feedback"
+										th:errors="${person.contactList[__${rowStat.index}__].contactType}"></div>
+								</td>
+								<td><input class="form-control form-control-sm"
+									th:field="${person.contactList[__${rowStat.index}__].contactName}"
+									th:errorclass="is-invalid" />
+									<div
+										th:if="${#fields.hasErrors('${person.contactList[__${rowStat.index}__].contactName}')}"
+										class="invalid-feedback"
+										th:errors="${person.contactList[__${rowStat.index}__].contactName}"></div>
+								</td>
+								<td>
+									<div class="btn-group">
+										<button type="button" name="removeDynamicRow"
+											th:value="${rowStat.index}" class="btn btn-sm btn-danger"
+											data-dynamic-update-rows-url="/removeContact">
+											<i class="fas fa-trash"></i>
+										</button>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+
+			</div>
+
+			<button type="submit" class="btn btn-primary btn-block">Submit (SAVE Database)</button>
+			<br />
+			<br />
+			<div class="row justify-content-center">
+				<!-- 	<h5 class="card-title">Contact Details</h5> -->
+				<div th:if="${errorMessage}"
+					class="alert alert-danger alert-dismissible fade show" role="alert">
+					<strong>Error:</strong> <span th:text="${errorMessage}">Error</span>
+					<button type="button" class="close" data-dismiss="alert"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div th:if="${successMessage}"
+					class="alert alert-success alert-dismissible fade show"
+					role="alert">
+					<strong>Success:</strong> <span th:text="${successMessage}">Success</span>
+					<button type="button" class="close" data-dismiss="alert"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<span><a th:href="@{/list}"
+						class="btn btn-sm btn-primary ml-2 mr-2"><i
+							class="fas fa-list-ol"></i> Go to Person List</a></span>
+				</div>
+
+				<div id="summary"></div>
+			</div>
+		</form>
+
+
+	</div>
+
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery-validation/jquery.validate.min.js}"></script>
+	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/scripts.js}"></script>
+	<script>
+		$(document).ready(function() {
+
+			$("#personContactForm").validate({focusCleanup: true, errorClass: "invalid",
+				  showErrors: function(errorMap, errorList) {
+					    $("#summary").html("Your form contains "
+					      + this.numberOfInvalids()
+					      + " errors, please fix them before submit.");
+					    this.defaultShowErrors();
+					  }
+					});
+
+			//$("input[name^='contactList']").each(function() {
+			$("input[name$='contactName']").each(function() {
+				$(this).rules('add', {
+					required : true,
+					rangelength : [ 10, 40 ]
+				});
+			});
+			
+			$("select[name$='contactType']").each(function() {
+				$(this).rules('add', {
+					required : true
+				});
+			});
+			
+
+		});
+	</script>
+
+</body>
+</html>

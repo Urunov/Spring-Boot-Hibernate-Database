@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Thymeleaf dynamic fields with ajax</title>
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
+<body>
+	<div class="container">
+
+
+		<div class="card">
+			<div class="card-header">JQuery</div>
+			<div class="card-body">
+				<div class="row justify-content-center">
+					<h5 class="card-title">JQuery Serialize Entire Form</h5>
+				</div>
+
+				<form action="#" method="post">
+
+					<div class="form-group row">
+						<label for="firstname" class="col-md-3 text-right text-muted">First
+							Name</label>
+						<div class="col-md-6">
+							<input class="form-control form-control-sm" type="text"
+								name="name" id="name" />
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label for="firstname" class="col-md-3 text-right text-muted">Email</label>
+						<div class="col-md-6">
+							<input class="form-control form-control-sm" type="text"
+								name="email" id="email" />
+						</div>
+					</div>
+
+
+					<div class="form-group row">
+						<label for="firstname" class="col-md-3 text-right text-muted">Options
+							(Multiple)</label>
+						<div class="col-md-6">
+							<select class="form-control form-control-sm" name="product"
+								size="5" multiple="multiple">
+								<option value="DrpDownValue1" selected="selected">Opt1</option>
+								<option value="DrpDownValue2">Opt2</option>
+								<option value="DrpDownValue3" selected="selected">Opt3</option>
+								<option value="DrpDownValue4">Opt4</option>
+								<option value="DrpDownValue5" selected="selected">Opt5</option>
+							</select>
+						</div>
+					</div>
+
+
+					<div class="form-group row">
+						<label for="firstname" class="col-md-3 text-right text-muted">CheckBoxes</label>
+						<div class="col-md-6">
+							<input type="checkbox" name="check" value="check1" id="ch1">
+							<label for="ch1">check1</label> <input type="checkbox"
+								name="check" value="check2" checked="checked" id="ch2">
+							<label for="ch2">check2</label>
+						</div>
+					</div>
+
+
+					<div class="form-group row">
+						<label for="firstname" class="col-md-3 text-right text-muted">Radios</label>
+						<div class="col-md-6">
+							<input type="radio" name="radio" value="radio1" checked="checked"
+								id="r1"> <label for="r1">radio1</label> <input
+								type="radio" name="radio" value="radio2" id="r2"> <label
+								for="r2">radio2</label>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label for="firstname" class="col-md-3 text-right text-muted"></label>
+						<div class="col-md-6">
+							<input class="btn btn-sm btn-block btn-primary" type="submit"
+								value="Send" />
+						</div>
+					</div>
+
+
+				</form>
+
+
+			</div>
+
+
+
+		</div>
+
+
+
+	</div>
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery-validation/jquery.validate.min.js}"></script>
+	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script>
+		(function($) {
+			$.fn.serializeFormJSON = function() {
+
+				var obj = {};
+				var arr = this.serializeArray();
+				$.each(arr, function() {
+					if (obj[this.name]) {
+						if (!obj[this.name].push) {
+							obj[this.name] = [ obj[this.name] ];
+						}
+						obj[this.name].push(this.value || '');
+					} else {
+						obj[this.name] = this.value || '';
+					}
+				});
+				return obj;
+			};
+		})(jQuery);
+
+		$('form').submit(function(e) {
+			e.preventDefault();
+			var data = $(this).serializeFormJSON();
+			//console.log(data);
+
+			var json = JSON.stringify(data);
+			//console.log(json);
+			alert(json);
+		});
+	</script>
+
+</body>
+</html>

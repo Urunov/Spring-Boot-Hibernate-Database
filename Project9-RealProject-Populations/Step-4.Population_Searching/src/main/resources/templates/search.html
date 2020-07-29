@@ -94,21 +94,25 @@
             <th>Change Values</th>
         </tr>
         </thead>
-        <tr th:each="people : ${peopleList}">
-            <td th:text="${people.id}">ID</td>
-            <td th:text="${people.name}"> Name</td>
-            <td th:text="${people.familyName}">Family Name</td>
-            <td th:text="${people.birthdate}">Age</td>
-            <td th:text="${people.address}">Address</td>
-            <td th:text="${people.marriage}">Marriage</td>
-            <td th:text="${people.nationality}">Nationality</td>
-            <td th:text="${people.education}">Education</td>
+        <tr th:each="peopleagain : ${peoples}">
 
-            <td>
-                <a th:href="@{'/edit/' + ${people.id}}">Edit</a>
-                &nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/delete/' + ${people.id}}">Delete</a>
-            </td>
+            <td th:text="${peopleagain.id}">ID</td>
+            <td th:text="${peopleagain.firstName}"> Name</td>
+            <td th:text="${peopleagain.lastName}">Family Name</td>
+            <td th:text="${peopleagain.birthdate}">Age</td>
+            <td th:text="${peopleagain.address}">Address</td>
+            <td th:text="${peopleagain.marriage}">Marriage</td>
+            <td th:text="${peopleagain.nationality}">Nationality</td>
+            <td th:text="${peopleagain.education}">Eduction</td>
+
+
+        <td>
+            <a th:href="@{'/edit/' + ${peopleagain.id}}">Edit</a>
+            &nbsp;&nbsp;&nbsp;
+            <a th:href="@{'/delete/' + ${peopleagain.id}}">Delete</a>
+        </td>
+
+
         </tr>
         </tbody>
     </table>

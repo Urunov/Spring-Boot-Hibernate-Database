@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Thymeleaf dynamic fields with ajax</title>
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
+<style>
+
+/* table { */
+/* 	height: 10px !important; */
+/* 	font-size: 12px; */
+/* } */
+.table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td{
+    padding: 5px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Navigation  MENU Part  -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+	<div class="container">
+		<a class="navbar-brand" href="/">Country Population:  People adding/removing Project v.1</a>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="/">Home
+						<span class="sr-only">(current)</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/about">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Services</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/contact">Contact</a>
+				</li>
+			</ul>
+		</div>
+
+
+	</div>
+</nav>
+
+<!----- Menu bar ended.--------->
+	<div class="container">
+
+
+		<div class="card">
+			<div class="card-header">
+				Functional possibility<a th:href="@{/list}"
+					class="btn btn-sm btn-primary float-right">List</a>
+			</div>
+			<div class="card-body">
+				<div class="row justify-content-center">
+					<h5 class="card-title">Population which you SEARCH</h5>
+				</div>
+
+				<div class="card-body">
+					<form>
+						<span class="subtitle">Search Persons based on FirstName
+							(Enter Few Chars of FirstName)</span>
+						<div class="input-group mb-3">
+							<input class="form-control form-control-sm col-md-6" type="text"
+								id="searchSurname" name="searchSurname" />
+								<div class="input-group-append">
+								<button id="searchButton" name="searchButton"
+									onclick="getPersons()" type="button"><i class="fas fa-search"></i> Search</button>
+							</div>
+						</div>
+						<hr />
+						<br />
+						<!-- Results block -->
+						<div id="resultsBlock"></div>
+					</form>
+					<br />
+
+
+					<div th:fragment="resultsList"
+						th:unless="${#lists.isEmpty(persons)}" class="results-block">
+						<table
+							class="table table-condensed table-condensed-sm table-bordered">
+							<thead>
+								<tr>
+									<th>Person-Id</th>
+									<th>FirstName</th>
+									<th>LastName</th>
+									<th>Contacts</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="person : ${persons}">
+									<td th:text="${person.id}">id</td>
+									<td th:text="${person.firstname}">id</td>
+									<td th:text="${person.lastName}">id</td>
+									<td>
+										<table
+											class="table table-condensed table-condensed-sm table-bordered">
+											<tr>
+												<th>Id</th>
+												<th>Seq#</th>
+												<th>Contact Type</th>
+												<th>Contact Name</th>
+											</tr>
+											<tr th:each="contact : ${person.contactList}">
+												<td th:text="${contact.id}">id</td>
+												<td th:text="${contact.sequenceNumber}">SequenceNumber</td>
+												<td th:text="${contact.contactType}">type</td>
+												<td th:text="${contact.contactName}">name</td>
+												<!--<p th:text="|${contact.id}  ${contact.contactType} ${contact.contactName} |">details/p> -->
+										</table>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/scripts.js}"></script>
+	<script>
+		function getPersons() {
+			var url = '/persons';
+
+			//     if ($('#searchFirstname').val() != '') {
+			url = url + '/' + $('#searchSurname').val();
+			//     }
+
+			$("#resultsBlock").load(url);
+		}
+	</script>
+s</body>
+</html>

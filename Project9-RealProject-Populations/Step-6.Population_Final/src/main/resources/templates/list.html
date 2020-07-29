@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Thymeleaf dynamic fields with ajax</title>
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}">
+</head>
+<body>
+
+<!-- Navigation  MENU Part  -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+	<div class="container">
+		<a class="navbar-brand" href="/">Country Population:  People adding/removing Project v.1</a>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="/">Home
+						<span class="sr-only">(current)</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/about">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Services</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/contact">Contact</a>
+				</li>
+			</ul>
+		</div>
+
+
+	</div>
+</nav>
+
+<!----- Menu bar ended.--------->
+
+
+	<div class="container">
+		<!-- 		<div class="container shadow mt-5 bg-lightpy-5"></div> -->
+		<div class="card">
+					<div class="card-header">
+						<!--<h3 class="card-title">List of registered users</h3> -->
+						<a href="/" th:href="@{/}"
+							class="btn btn-sm btn-success"
+							title="Add Person."><i class="fas fa-plus"></i> Add Person</a><a th:href="@{/search}"
+						class="btn btn-sm btn-secondary float-right mr-3">Search</a>
+
+					</div>
+					<br />
+
+					<div class="card-body">
+
+
+						<table id="tableitems"
+							class="table table-condensed table-hover table-responsive-sm  table_morecondensed width=80%">
+							<thead class="thead-secondary">
+								<tr>
+									<th>ID</th>
+									<th>First Name</th>
+									<th>Last Name</th>
+									<th>Contact-Details</th>
+									<th>Actions</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr th:each="person : ${persons}">
+									<td th:text="${person.id}"></td>
+									<td th:text="${person.firstname}"></td>
+									<td th:text="${person.lastName}"></td>
+									<td><ol>
+											<li th:each="contact : ${person.contactList}"
+												th:text="${contact.contactType + ' - ' + contact.contactName}">Contact Details</li>
+										</ol></td>
+
+									<td><div class="btn-group">
+											<a
+												th:href="@{'/person/' + ${person.id}}"
+												class="btn btn-sm btn-warning bg-orange mr-2"
+												title="Edit User. Available to Users and Super Admins only."><i
+												class="fas fa-user-edit"></i></a><a
+												th:href="@{'/personDelete/' + ${person.id}}"
+												class="btn btn-sm btn-danger bg-red mr-2 delBtn"
+												title="Delete Person."><i class="far fa-trash-alt"></i>
+											</a>
+										</div></td>
+
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<th>ID</th>
+									<th>First Name</th>
+									<th>Last Name</th>
+									<th>Contact-Details</th>
+									<th>Actions</th>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+	</div>
+
+
+
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/scripts.js}"></script>
+</body>
+</html>
