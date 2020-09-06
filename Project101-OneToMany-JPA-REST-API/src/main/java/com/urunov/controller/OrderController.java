@@ -3,6 +3,7 @@ package com.urunov.controller;
 import com.urunov.dto.OrderRequest;
 import com.urunov.dto.OrderResponse;
 import com.urunov.model.Customer;
+import com.urunov.model.Product;
 import com.urunov.repositories.CustomerRepository;
 import com.urunov.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +42,10 @@ public class OrderController {
     @GetMapping("/getInfo")
     public List<OrderResponse> getJonInformation(){
        return customerRepository.getJoinInformation();
+    }
+
+    @GetMapping("/getProduct")
+    public List<Product> justResponse(){
+        return productRepository.findAll();
     }
 }

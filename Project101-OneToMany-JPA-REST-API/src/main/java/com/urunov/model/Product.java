@@ -2,10 +2,7 @@ package com.urunov.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @AllArgsConstructor
@@ -21,5 +18,9 @@ public class Product {
     private String productName;
     private int qty;
     private int price;
+
+    @ManyToOne
+    @JoinColumn(name = "cuspro_fk", referencedColumnName = "id")
+    private Customer customer;
 
 }
