@@ -19,8 +19,8 @@ public class Product {
     private int qty;
     private int price;
 
-    @ManyToOne
-    @JoinColumn(name = "cuspro_fk", referencedColumnName = "id")
-    private Customer customer;
+//    @ManyToOne
+//    @JoinColumn(name = "cuspro_fk", referencedColumnName = "id")
+//    private Customer customer;
 
 }

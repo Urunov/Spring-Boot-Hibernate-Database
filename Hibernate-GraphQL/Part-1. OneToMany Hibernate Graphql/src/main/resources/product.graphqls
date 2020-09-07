@@ -1,0 +1,22 @@
+type Product{
+    id: ID!
+    productName: String!
+    slug: String
+    unit: String
+    price: Float
+    salePrice: Float
+    description: String!
+    type: String
+    image: String
+}
+
+extend type Query{
+    findAllProducts: [Product]
+    countProducts: Int!
+}
+
+extend type Mutation{
+    createProduct(productName: String, slug: String, unit: String ,description: String, price: Float , salePrice:Float , type: String , image: String , cid:ID!): Product!
+
+    deleteProduct(id: ID!): Boolean!
+}

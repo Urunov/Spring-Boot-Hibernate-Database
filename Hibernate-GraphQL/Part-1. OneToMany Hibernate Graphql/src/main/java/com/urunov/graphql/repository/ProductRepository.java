@@ -1,12 +1,12 @@
-package com.urunov.repository;
+package com.urunov.graphql.repository;
 
-import com.urunov.model.Product;
+import com.urunov.graphql.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * @Author: apple
- * @created on 06/09/2020
- * @Project is GraphQL-OneToMany
+ * @created on 07/09/2020
+ * @Project is OnetoMany
  */
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 }

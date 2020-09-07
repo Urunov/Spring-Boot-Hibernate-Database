@@ -1,0 +1,18 @@
+type Customer {
+    
+    customerName: String!
+    image: String
+    email: String
+    totalOrder: Int!
+    totalOrderAmount: Int
+
+}
+
+ type Query{
+    findAllCustomers: [Customer]!
+    countCustomer: Int!
+}
+
+ type Mutation{
+    createCustomer(customerName: String!, image: String, email: String, totalOrder: Int,  totalOrderAmount: Int ): Customer!
+}
