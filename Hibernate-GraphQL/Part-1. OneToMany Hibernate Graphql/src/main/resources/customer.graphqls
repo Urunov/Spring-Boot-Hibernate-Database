@@ -1,5 +1,5 @@
 type Customer {
-    
+    cid: ID!
     customerName: String!
     image: String
     email: String

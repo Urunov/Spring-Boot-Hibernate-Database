@@ -1,5 +1,5 @@
 type Product{
-    id: ID!
+    pid: ID!
     productName: String!
     slug: String
     unit: String

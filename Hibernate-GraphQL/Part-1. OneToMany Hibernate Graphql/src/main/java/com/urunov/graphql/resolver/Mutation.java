@@ -19,7 +19,9 @@ import java.util.Optional;
 @Component
 public class Mutation implements GraphQLMutationResolver {
 
+    @Autowired
     private CustomerRepository customerRepository;
+    @Autowired
     private ProductRepository productRepository;
 
     @Autowired

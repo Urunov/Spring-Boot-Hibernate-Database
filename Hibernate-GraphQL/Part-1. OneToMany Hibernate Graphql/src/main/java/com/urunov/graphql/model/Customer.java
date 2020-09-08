@@ -29,6 +29,14 @@ public class Customer {
     private int totalOrder;
     private int totalOrderAmount;
 
+    public Customer(String customerName, String image, String email, int totalOrder, int totalOrderAmount) {
+        this.customerName = customerName;
+        this.image = image;
+        this.email = email;
+        this.totalOrder = totalOrder;
+        this.totalOrderAmount = totalOrderAmount;
+    }
+
     public Customer(Integer id) {
     }
 }

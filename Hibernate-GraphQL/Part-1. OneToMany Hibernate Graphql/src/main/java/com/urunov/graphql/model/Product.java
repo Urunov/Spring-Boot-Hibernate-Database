@@ -13,7 +13,6 @@ import javax.persistence.*;
 @Setter
 @Getter
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @ToString
@@ -31,8 +30,19 @@ public class Product {
     private String type;
     private String image;
 
+    public Product(String name, String slug, String unit, Float price, Float salePrice, String description, String type, String image ){
+        this.productName = name;
+        this.slug = slug;
+        this.price = price;
+        this.salePrice = salePrice;
+        this.description = description;
+        this.type  = type;
+        this.image = image;
+    }
+
+
     @ManyToOne
-    @JoinColumn(name = "cp_fk", nullable = false, updatable = false, referencedColumnName="pid")
+    @JoinColumn(name = "cp_fk_id", nullable = false, updatable = false)
     private Customer customer;
 
 }
