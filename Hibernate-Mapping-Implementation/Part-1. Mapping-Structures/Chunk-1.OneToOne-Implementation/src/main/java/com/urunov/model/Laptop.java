@@ -1,31 +1,29 @@
-package model;
+package com.urunov.model;
 
 import lombok.*;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
  * @Author: apple
- * @created on 09/09/2020
- * @Project is Hibernate-Implementation
+ * @created on 10/09/2020
+ * @Project is Mapping-One2One
  */
 
 @Entity
 @Data
-@Getter
 @Setter
-@ToString
+@Getter
 @AllArgsConstructor
+@NoArgsConstructor
+
 public class Laptop {
 
     @Id
     private int lid;
 
-    private String name;
+    private String lname;
 
-    public Laptop() {
-    }
+
 }
-

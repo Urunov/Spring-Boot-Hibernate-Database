@@ -1,35 +1,34 @@
-package model;
+package com.urunov.model;
 
 import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
  * @Author: apple
- * @created on 09/09/2020
- * @Project is Hibernate-Implementation
+ * @created on 10/09/2020
+ * @Project is Mapping-One2One
  */
-@Data
-@Setter
-@Getter
+
 @Entity
+@Data
+@Getter
+@Setter
 @ToString
 @AllArgsConstructor
+@NoArgsConstructor
 public class Student {
 
     @Id
     private int rollno;
+
     private String name;
+
     private int mark;
 
-    public Student() {
-    }
-
-   @OneToOne
-   private Laptop laptop;
-
+    @OneToOne
+    private Laptop laptop;
 
 }
