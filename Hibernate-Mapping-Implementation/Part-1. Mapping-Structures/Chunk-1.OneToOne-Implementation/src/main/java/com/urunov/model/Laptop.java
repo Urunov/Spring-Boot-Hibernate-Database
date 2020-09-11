@@ -3,6 +3,7 @@ package com.urunov.model;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
@@ -21,9 +22,26 @@ import javax.persistence.Id;
 public class Laptop {
 
     @Id
+    @GeneratedValue
     private int lid;
 
     private String lname;
 
+    public int getLid() {
+        return lid;
+    }
 
+    public Laptop setLid(int lid) {
+        this.lid = lid;
+        return this;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public Laptop setLname(String lname) {
+        this.lname = lname;
+        return this;
+    }
 }

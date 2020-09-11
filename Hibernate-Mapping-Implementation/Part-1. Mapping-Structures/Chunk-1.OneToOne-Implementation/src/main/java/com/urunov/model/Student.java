@@ -2,9 +2,7 @@ package com.urunov.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 /**
  * @Author: apple
@@ -14,21 +12,49 @@ import javax.persistence.OneToOne;
 
 @Entity
 @Data
-@Getter
-@Setter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class Student {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int rollno;
 
     private String name;
 
     private int mark;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "rollno_id", referencedColumnName = "lid")
     private Laptop laptop;
 
+
+
+    public String getName() {
+        return name;
+    }
+
+    public Student setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public int getMark() {
+        return mark;
+    }
+
+    public Student setMark(int mark) {
+        this.mark = mark;
+        return this;
+    }
+
+    public Laptop getLaptop() {
+        return laptop;
+    }
+
+    public Student setLaptop(Laptop laptop) {
+        this.laptop = laptop;
+        return this;
+    }
 }
